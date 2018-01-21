@@ -6,23 +6,23 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * user.xml ¶ÔÓ¦µÄ½Ó¿Ú
+ * user.xml å¯¹åº”çš„æ¥å£
  *
  * @author lyons(zhanglei)
  */
 public interface UserDao {
     /**
-     * ¸ù¾İÓÃ»§Ãû²éÑ¯ĞÅÏ¢
+     * æ ¹æ®ç”¨æˆ·åæŸ¥è¯¢ä¿¡æ¯
      **/
-    List<User> queryByuserNamepassWord(Map<String, Object> map);
+    List<User> findUser(Map<String, String> map);
 
     /**
-     * ×¢²áĞÂÓÃ»§
+     * æ³¨å†Œæ–°ç”¨æˆ·
      **/
     void insertUser(Map<String, String> registerMap);
 
     /**
-     * ÑéÖ¤ÓÃ»§ÊÇ·ñ´æÔÚ
+     * éªŒè¯ç”¨æˆ·æ˜¯å¦å­˜åœ¨
      **/
     List<User> queryByuserName(String username);
 }

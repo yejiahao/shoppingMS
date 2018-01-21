@@ -1,8 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,20 +6,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE"/>
     <title>内容列表页面</title>
-    <link href="<%= basePath %>resource/css/all.css" rel="stylesheet" type="text/css"/>
-    <script src="<%= basePath %>resource/js/jquery-1.8.0.min.js"></script>
-    <script src="<%= basePath %>resource/js/OrderList.js"></script>
+    <link href="${pageContext.request.contextPath}/css/all.css" rel="stylesheet" type="text/css"/>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
+    <script src="${pageContext.request.contextPath}/js/OrderList.js"></script>
 </head>
 <body style="background: #e1e9eb;">
 
 <jsp:useBean id="orderAllList" class="lyons.order.entity.Order" scope="session"/>
 
-<form action="<%= basePath %>Order.action?key=3" id="mainForm" method="post">
+<form action="${pageContext.request.contextPath}/order.action?key=3" id="mainForm" method="post">
     <div class="right">
-        <div class="current">当前位置：<a href="<%= basePath %>index.jsp" style="color:#6E6E6E;">订单管理</a> &gt; 订单列表</div>
+        <div class="current">当前位置：<a href="${pageContext.request.contextPath}/index.jsp" style="color:#6E6E6E;">订单管理</a>
+            &gt; 订单列表
+        </div>
         <div class="rightCont">
             <p class="g_title fix">订单详情 <a class="btn03" href="#">新 增</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a class="btn03" href="javaScript:deleteOrderBatch('<%= basePath %>');">删 除</a></p>
+                <a class="btn03" href="javaScript:deleteOrderBatch('${pageContext.request.contextPath}/');">删 除</a></p>
             <table class="tab1">
                 <tbody>
                 <tr>
@@ -62,7 +60,6 @@
                     %>
                     <tr <% if (i % 2 == 0) {%> bgcolor="#FFE4B5" <%} else {%> bgcolor="#FFFACD" <%
                         }
-                        ;// 隔行换颜色
                     %>>
                         <td><input type="checkbox" name="deleteId" value=<%= ID %>></td>
                         <td><%= ++i %>
@@ -71,12 +68,12 @@
                         </td>
                         <td><%= name %>
                         </td>
-                        <td><%= price%> $</td>
+                        <td><%= price %>￥</td>
                         <td><%= number %>
                         </td>
                         <td>
                             <a href="#">修改</a>&nbsp;&nbsp;&nbsp;
-                            <a href="<%= basePath %>Order.action?key=4&id=<%= ID %>">删除</a>
+                            <a href="${pageContext.request.contextPath}/order.action?key=4&id=<%= ID %>">删除</a>
                         </td>
                     </tr>
                     <%

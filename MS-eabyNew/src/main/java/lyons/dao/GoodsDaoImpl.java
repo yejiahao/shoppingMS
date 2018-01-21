@@ -1,17 +1,15 @@
 package lyons.dao;
 
-import java.io.IOException;
-import java.util.List;
-
 import lyons.db.DbAccess;
 import lyons.goods.entity.Goods;
-
 import org.apache.ibatis.session.SqlSession;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  * 商品维护类-学习面向接口编程
  * <p>
- * commodity.sql
  */
 public class GoodsDaoImpl implements GoodsDao {
     GoodsDao goodsDao;
@@ -23,7 +21,6 @@ public class GoodsDaoImpl implements GoodsDao {
     }
 
     /**
-     * 查询商品列表-commodity.sql
      * 根据（关键字||分类）or（关键字&&分类）
      * <p>
      * 此查询函数不再改为接口式编程，作为知识留存
@@ -44,7 +41,6 @@ public class GoodsDaoImpl implements GoodsDao {
     }
 
     /**
-     * 查询商品列表-commodity.sql
      *
      * @return 商品列表数组
      */
@@ -63,7 +59,6 @@ public class GoodsDaoImpl implements GoodsDao {
     }
 
     /**
-     * 查询商品列表-commodity.sql
      * 根据关键字查询
      *
      * @return 商品列表数组
@@ -81,7 +76,6 @@ public class GoodsDaoImpl implements GoodsDao {
 
         return null;
     }
-
 
     /**
      * 删除单个商品

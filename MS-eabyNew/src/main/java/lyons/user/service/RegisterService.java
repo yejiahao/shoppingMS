@@ -1,14 +1,13 @@
 package lyons.user.service;
 
-import java.io.IOException;
-import java.util.Map;
+import lyons.dao.UserDaoImpl;
+import lyons.user.entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import lyons.dao.UserDaoImpl;
-import lyons.user.entity.User;
+import java.io.IOException;
+import java.util.Map;
 
 /**
  * 用户注册服务类
@@ -19,18 +18,17 @@ import lyons.user.entity.User;
  */
 public class RegisterService {
     String username;
-    String userpass;
-    String again_userpass;
+    String password;
+    String password2;
     String phone;
     User userBean = new User();
     UserDaoImpl userDao = new UserDaoImpl();
     UserService userService = new UserService();
 
-    //    Map<String, Object> registerUserMap = new HashMap<>();
     public void register(HttpServletRequest request, HttpServletResponse response, Map<String, String> registerMap) throws ServletException, IOException {
         username = registerMap.get("username");
-        userpass = registerMap.get("userpass");
-        again_userpass = registerMap.get("again_userpass");
+        password = registerMap.get("password");
+        password2 = registerMap.get("password2");
         phone = registerMap.get("phone");
 
         request.setAttribute("userBean", userBean);
@@ -38,36 +36,25 @@ public class RegisterService {
         if (username == null) {
             username = "";
         }
-        if (userpass == "" || userpass == null) {
-            userpass = "error";
-        }
 
-        String regex = "[\\d]{11}";
-        if (!(again_userpass.equals(userpass))) {
+        if (!(password2.equals(password))) {
             userBean.setBackNews("两次密码不一致,注册失败");
             request.getRequestDispatcher("/jsp/join/register.jsp").forward(request, response);
-        } else if (phone != null && phone.length() > 0 && !phone.matches(regex)) {
+        } else if (password.length() < 6 || password.length() > 16) {
+            userBean.setBackNews("密码不合法");
+            request.getRequestDispatcher("/jsp/join/register.jsp").forward(request, response);
+        } else if (phone != null && phone.length() > 0 && !phone.matches("^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\d{8}$")) {
             userBean.setBackNews("请正确填写11位手机号");
             request.getRequestDispatcher("/jsp/join/register.jsp").forward(request, response);
             return;
         } else {
-            String backNews = "";
-//                      String regex = "[\\w]{4,16}";
-//                      boolean userFlag = username.matches(regex) && userpass.length() > 5;
-            if (userpass.length() > 5) {// 密码长度限制 至少六位数
-                if (userService.isExistence(username)) {
-                    backNews = "该用户名已被注册" + "<br>";// 这样的验证留给js前端验证
-                    userBean.setBackNews(backNews);
-                    request.getRequestDispatcher("/jsp/join/register.jsp").forward(request, response);
-                } else {
-                    userDao.insertUser(registerMap);// 去注册
-                    backNews = "注册成功";
-                    userBean.setBackNews(backNews);
-                    request.getRequestDispatcher("/jsp/join/registerSuccess.jsp").forward(request, response);
-                }
-            } else {
-                userBean.setBackNews("密码不合法");
+            if (userService.isExistence(username)) {
+                userBean.setBackNews("该用户名已被注册" + "<br>");// 这样的验证留给js前端验证
                 request.getRequestDispatcher("/jsp/join/register.jsp").forward(request, response);
+            } else {
+                userDao.insertUser(registerMap);// 去注册
+                userBean.setBackNews("注册成功");
+                request.getRequestDispatcher("/jsp/join/registerSuccess.jsp").forward(request, response);
             }
         }
 

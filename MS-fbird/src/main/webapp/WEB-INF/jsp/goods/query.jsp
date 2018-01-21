@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="inner-left">
                             <img src="${path}${item.gPic}"/>
-                            <h1><a href="javascript:void(0)"><i class="fa fa-jpy"> ${item.gPrice }</i></a></h1>
+                            <h1><a href="javascript:void(0)"><i class="fa fa-jpy"> ${item.gPrice}</i></a></h1>
                             <span>
 			                        <c:set var="zip" value="${item.gDescribe}"></c:set>
 			                        ${fn:substring(zip, 0, 8)}
@@ -46,6 +46,6 @@
 <!--footer-->
 <%@ include file="/WEB-INF/jsp/common/footer.jsp" %>
 </body>
-<script src="${path}resource/script/main.js" type="text/javascript"></script>
-<script src="${path}resource/script/goods.js" type="text/javascript"></script>
+<script src="${path}script/main.js" type="text/javascript"></script>
+<script src="${path}script/goods.js" type="text/javascript"></script>
 </html>

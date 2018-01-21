@@ -24,7 +24,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM u_user
-        WHERE u_name = #{uName} and u_password = #{pswd}
+        WHERE u_name = #{uName} AND u_password = #{pswd}
     </select>
 
     <!-- checking for the existence of username -->
@@ -43,7 +43,7 @@
   </insert>
 
     <update id="updateByPrimaryKeySelective" parameterType="UUser">
-        update U_USER
+        UPDATE U_USER
         <set>
             <if test="uNickName != null  and !(&quot;&quot;.equals(uNickName.trim()))">
                 U_NICK_NAME = #{uNickName,jdbcType=VARCHAR},
@@ -67,6 +67,6 @@
                 U_LAST_LOGIN_TIME = #{uLastLoginTime,jdbcType=DATE},
             </if>
         </set>
-        where U_NAME = #{uName,jdbcType=VARCHAR}
+        WHERE U_NAME = #{uName,jdbcType=VARCHAR}
     </update>
 </mapper>

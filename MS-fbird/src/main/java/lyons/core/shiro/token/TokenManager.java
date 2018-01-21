@@ -19,7 +19,6 @@ import lyons.common.utils.VisitorUtil;
 public class TokenManager {
     /**
      * @param uuser
-     * @param rememberMe
      * @Title: login
      * @Description: shiro 登录 (密码md5封装加密)
      * @return:

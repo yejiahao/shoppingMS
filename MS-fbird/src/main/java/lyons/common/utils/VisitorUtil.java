@@ -1,18 +1,15 @@
 /*Copyright ©  2018 Lyons. All rights reserved. */
 package lyons.common.utils;
 
-import javax.servlet.http.HttpServletRequest;
-
+import lyons.common.exception.user.UserException;
+import lyons.common.model.user.UUser;
+import lyons.common.utils.enums.AccountStaEnum;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.web.util.SavedRequest;
 import org.apache.shiro.web.util.WebUtils;
 
-import lyons.common.exception.user.NullValueException;
-import lyons.common.exception.user.RepeatException;
-import lyons.common.exception.user.UserException;
-import lyons.common.model.user.UUser;
-import lyons.common.utils.enums.AccountStaEnum;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Description: 获取ip地址
@@ -22,6 +19,10 @@ import lyons.common.utils.enums.AccountStaEnum;
  * @version: [1.0]
  */
 public class VisitorUtil {
+    private VisitorUtil() {
+        throw new AssertionError();
+    }
+
     public static String getIp4() {
 //        Inet4Address ip4 = Inet4Address.
         return "";
@@ -47,7 +48,7 @@ public class VisitorUtil {
     public static boolean isSecurity(UUser uuser) throws UserException {
         String security = securityCheck(uuser);
         if (security != null) {
-            throw new NullValueException(security);
+            throw new UserException(security);
         }
         return true;
     }
@@ -58,7 +59,7 @@ public class VisitorUtil {
      * @Description: 常规安全检查
      * @return: String
      */
-    public static String securityCheck(UUser uuser) throws RepeatException {
+    public static String securityCheck(UUser uuser) throws UserException {
         if (StringUtils.isBlank(uuser.getuName())) {
             return AccountStaEnum.nameNull.getInfo();
         }
@@ -72,7 +73,7 @@ public class VisitorUtil {
          *  2.强制类型转换后获取属性值
          */
         if (isLogin()) {
-            throw new RepeatException(((UUser) SecurityUtils.getSubject().getPrincipal()).getuName()
+            throw new UserException(((UUser) SecurityUtils.getSubject().getPrincipal()).getuName()
                     + AccountStaEnum.repeat.getInfo());
         }
 

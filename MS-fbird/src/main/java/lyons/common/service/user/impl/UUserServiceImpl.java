@@ -19,7 +19,7 @@ import lyons.common.service.user.UUserService;
  */
 @Service
 public class UUserServiceImpl implements UUserService {
-    private static Logger log = LoggerFactory.getLogger(UUserServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UUserServiceImpl.class);
     @Autowired
     private UUserMapper userMapper;
 
@@ -28,7 +28,7 @@ public class UUserServiceImpl implements UUserService {
         try {
             return userMapper.loginByNamePswd(username, pswd);
         } catch (Exception e) {
-            log.debug("\n\n |======UUserServiceImpl===login===>" + e + "<=============| \n");
+            LOG.error("\n\n |======UUserServiceImpl===login===>" + e + "<=============| \n");
         }
         return null;
     }
@@ -38,7 +38,7 @@ public class UUserServiceImpl implements UUserService {
         try {
             return userMapper.register(uuser);
         } catch (Exception e) {
-            log.debug("\n\n |======UUserServiceImpl===register===>" + e + "<=============| \n");
+            LOG.error("\n\n |======UUserServiceImpl===register===>" + e + "<=============| \n");
         }
         return -1;
     }
@@ -53,7 +53,7 @@ public class UUserServiceImpl implements UUserService {
         try {
             return username.equals(userMapper.findUsernameByUsername(username));
         } catch (Exception e) {
-            log.debug("\n\n |======UUserServiceImpl===isRegister===>" + e + "<=============| \n");
+            LOG.error("\n\n |======UUserServiceImpl===isRegister===>" + e + "<=============| \n");
             return false;
         }
     }

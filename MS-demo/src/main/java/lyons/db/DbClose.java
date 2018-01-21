@@ -36,19 +36,19 @@ public final class DbClose {
     /**
      * 关闭资源
      *
-     * @param pstmt,rs,conn
+     * @param rs,pstmt,conn
      */
-    public static void queryClose(PreparedStatement pstmt, ResultSet rs, Connection conn) {
+    public static void queryClose(ResultSet rs, PreparedStatement pstmt, Connection conn) {
         try {
-            if (pstmt != null) {
-                pstmt.close();
+            if (rs != null) {
+                rs.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try {
-            if (rs != null) {
-                rs.close();
+            if (pstmt != null) {
+                pstmt.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();

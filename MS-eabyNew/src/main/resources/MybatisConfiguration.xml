@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!DOCTYPE configuration
-        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
     <!--
@@ -24,22 +22,23 @@
             <transactionManager type="JDBC">
                 <property name="" value=""/>
             </transactionManager>
-            <!-- 连接本地oracle数据库信息 -->
+            <!-- 连接本地MySQL数据库信息 -->
             <dataSource type="UNPOOLED">
-                <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-                <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-                <property name="username" value="scott"/>
-                <property name="password" value="tiger"/>
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/ms_eabynew?characterEncoding=utf8&amp;useSSL=true"/>
+                <property name="username" value="root"/>
+                <property name="password" value="20170419"/>
             </dataSource>
         </environment>
     </environments>
 
     <!-- 整合资源，将其他的配置文件添加进 ,路径也是从src写起-->
     <mappers>
-        <mapper resource="resources/sql/Goods.xml"/>
-        <mapper resource="resources/sql/Order.xml"/>
-        <mapper resource="resources/sql/Classify.xml"/>
-        <mapper resource="resources/sql/User.xml"/>
+        <mapper resource="/sql/Goods.xml"/>
+        <mapper resource="/sql/Order.xml"/>
+        <mapper resource="/sql/Classify.xml"/>
+        <mapper resource="/sql/User.xml"/>
     </mappers>
 
 </configuration>

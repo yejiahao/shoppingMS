@@ -105,7 +105,6 @@
 
 })();
 
-
 // 便民服务
 (function () {
     $('.service-cell').hover(function () {
@@ -131,7 +130,6 @@
         });
     });
 })();
-
 
 // product-show
 (function () {
@@ -176,7 +174,6 @@
     });
 })();
 
-
 /**
  * backToTop1
  */
@@ -205,7 +202,6 @@ $(document).ready(function () {
         }, 500);
     });
 });
-
 
 // my-card
 (function () {

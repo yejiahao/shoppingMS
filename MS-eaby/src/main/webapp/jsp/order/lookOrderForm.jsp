@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/jsp/join/isLogin.jsp" %>
 <%@ include file="/index.jsp" %>
 <%@ page import="com.sun.rowset.CachedRowSetImpl" %>
@@ -78,7 +78,6 @@
         %>
         <tr <% if (i % 2 == 0) {%> bgcolor="#20B2AA" <%} else {%> bgcolor="#008B8B" <%
             }
-            ;// 隔行换颜色
         %>>
             <td><%= i %>
             </td>

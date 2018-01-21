@@ -44,7 +44,7 @@ public final class SalesManDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            DbClose.queryClose(pstmt, rs, conn);
+            DbClose.queryClose(rs, pstmt, conn);
         }
         return salesManInfo;
     }
@@ -65,8 +65,7 @@ public final class SalesManDao {
             pstmt.setString(1, sName.getSName());
             pstmt.setString(2, sName.getSPassWord());
 
-            int rs = pstmt.executeUpdate();
-            if (rs > 0) {
+            if (pstmt.executeUpdate() > 0) {
                 bool = true;
             }
         } catch (SQLException e) {
@@ -80,52 +79,42 @@ public final class SalesManDao {
     /**
      * 3.更改售货员信息
      *
-     * @param key   要更改项
-     * @param sName 用户名
+     * @param key
+     * @param sName
      * @return boolean
      */
     public boolean updateSalesMan(int key, SalesMan sName) {
         boolean bool = false;
         conn = DbConn.getConn();
-        switch (key) {
-            case 1:        // 3.1 更改售货员姓名
-                String sqlName = "UPDATE SALESMAN SET SNAME=? WHERE SID=?";
-
-                try {
+        try {
+            switch (key) {
+                case 1:        // 3.1 更改售货员姓名
+                    String sqlName = "UPDATE SALESMAN SET SNAME=? WHERE SID=?";
                     pstmt = conn.prepareStatement(sqlName);
                     pstmt.setString(1, sName.getSName());
                     pstmt.setInt(2, sName.getSId());
 
-                    int rs = pstmt.executeUpdate();
-                    if (rs > 0) {
+                    if (pstmt.executeUpdate() > 0) {
                         bool = true;
                     }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } finally {
-                    DbClose.addClose(pstmt, conn);
-                }
-                break;
-            case 2:        // 3.2 更改售货员密码
-                String sqlPrice = "UPDATE SALESMAN SET SPASSWORD=? WHERE SID=?";
-
-                try {
+                    break;
+                case 2:        // 3.2 更改售货员密码
+                    String sqlPrice = "UPDATE SALESMAN SET SPASSWORD=? WHERE SID=?";
                     pstmt = conn.prepareStatement(sqlPrice);
                     pstmt.setString(1, sName.getSPassWord());
                     pstmt.setInt(2, sName.getSId());
 
-                    int rs = pstmt.executeUpdate();
-                    if (rs > 0) {
+                    if (pstmt.executeUpdate() > 0) {
                         bool = true;
                     }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } finally {
-                    DbClose.addClose(pstmt, conn);
-                }
-                break;
-            default:
-                break;
+                    break;
+                default:
+                    break;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbClose.addClose(pstmt, conn);
         }
         return bool;
     }
@@ -133,7 +122,7 @@ public final class SalesManDao {
     /**
      * 4.删除售货员
      *
-     * @param sName 用户名
+     * @param sName
      * @return boolean
      */
     public boolean deleteSalesMan(String sName) {
@@ -143,8 +132,7 @@ public final class SalesManDao {
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, sName);
-            int rs = pstmt.executeUpdate();
-            if (rs > 0) {
+            if (pstmt.executeUpdate() > 0) {
                 bool = true;
             }
         } catch (SQLException e) {
@@ -158,7 +146,7 @@ public final class SalesManDao {
     /**
      * 5.模糊查询售货员
      *
-     * @param sName 用户名
+     * @param sName
      * @return ArrayList<SalesMan>
      */
     public ArrayList<SalesMan> querySalesMan(String sName) {
@@ -182,7 +170,7 @@ public final class SalesManDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            DbClose.queryClose(pstmt, rs, conn);
+            DbClose.queryClose(rs, pstmt, conn);
         }
         return SalesManList;
     }
@@ -211,7 +199,7 @@ public final class SalesManDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            DbClose.queryClose(pstmt, rs, conn);
+            DbClose.queryClose(rs, pstmt, conn);
         }
         return salesManList;
     }

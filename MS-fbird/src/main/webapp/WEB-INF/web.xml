@@ -6,9 +6,6 @@
          version="3.1">
     <display-name>飞鸟速购</display-name>
     <description>毕业设计</description>
-    <welcome-file-list>
-        <welcome-file>/WEB-INF/welcome.jsp</welcome-file>
-    </welcome-file-list>
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -23,21 +20,6 @@
     <listener>
         <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
     </listener>
-
-    <servlet>
-        <servlet-name>SpringMVC-Dispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:config/spring/spring-web.xml</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-        <async-supported>true</async-supported>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>SpringMVC-Dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
 
     <filter>
         <filter-name>encodingFilter</filter-name>
@@ -55,7 +37,6 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
     <filter>
         <filter-name>shiroFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -71,6 +52,21 @@
         <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
 
+    <servlet>
+        <servlet-name>SpringMVC-Dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:config/spring/spring-web.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpringMVC-Dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
     <error-page>
         <error-code>403</error-code>
         <location>/WEB-INF/jsp/error/403.jsp</location>
@@ -80,4 +76,7 @@
         <location>/WEB-INF/jsp/error/404.jsp</location>
     </error-page>
 
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/welcome.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

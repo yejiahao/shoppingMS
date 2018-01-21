@@ -22,7 +22,6 @@ $(document).ready(function () {
 });
 
 /********************* car detail*******************/
-
 // 购物车单条删除
 $(document).ready(function () {
 
@@ -58,7 +57,7 @@ $(document).ready(function () {
 
  $.post("/carDelete",data ,function(result){
  if (result.state == 200) {
- window.location.href = login.URL.registerSucess();// 跳转到注册成功界面
+ window.location.href = login.URL.registerSuccess();// 跳转到注册成功界面
  }else {
  login.submit.error("#registerSubmitMessage", result.message);
  }

@@ -20,8 +20,8 @@ $(function () {
             register: function () {
                 return "/admin/register";
             },
-            registerSucess: function () {
-                return "/registerSucess";
+            registerSuccess: function () {
+                return "/registerSuccess";
             }
 
         },
@@ -91,7 +91,6 @@ $(function () {
             }
         }
     }
-
 
     // 用户名
     $('#uName').blur(function () {
@@ -185,7 +184,7 @@ $(function () {
             login.submit.right("#registerSubmitMessage");
             $.post(login.URL.register(), data, function (result) {
                 if (result.state == 200) {
-                    window.location.href = login.URL.registerSucess();// 跳转到注册成功界面
+                    window.location.href = login.URL.registerSuccess();// 跳转到注册成功界面
                 } else {
                     login.submit.error("#registerSubmitMessage", result.message);
                 }

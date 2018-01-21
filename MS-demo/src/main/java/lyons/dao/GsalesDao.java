@@ -31,7 +31,7 @@ public final class GsalesDao {
 
         // 售卖时间=当前时间 trunc(sdate) =trunc(sysdate) 单位：天
         // sql语句解释见files/sql/java_sql.sql
-        String sql = "select gname,gprice,gnum, allSum from goods, (select gid as salesid,sum(snum) as allSum from gsales where trunc(sdate) =trunc(sysdate) group by gid) where gid = salesid";
+        String sql = "SELECT gname,gprice,gnum, allSum FROM goods, (SELECT gid AS salesid,SUM(snum) AS allSum FROM gsales WHERE trunc(sdate) =trunc(sysdate) GROUP BY gid) WHERE gid = salesid";
         try {
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
@@ -47,7 +47,7 @@ public final class GsalesDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            DbClose.queryClose(pstmt, rs, conn);
+            DbClose.queryClose(rs, pstmt, conn);
         }
         return GsalesList;
     }
@@ -55,7 +55,7 @@ public final class GsalesDao {
     /**
      * 2.购物结算-向sales表中插入商品数据！
      *
-     * @param gSales 售卖商品对象
+     * @param gSales
      * @return boolean
      */
     public boolean shoppingSettlement(Gsales gSales) {
@@ -69,8 +69,7 @@ public final class GsalesDao {
             pstmt.setInt(2, gSales.getSId());
             pstmt.setInt(3, gSales.getSNum());
 
-            int rs = pstmt.executeUpdate();
-            if (rs > 0) {
+            if (pstmt.executeUpdate() > 0) {
                 bool = true;
             }
         } catch (SQLException e) {

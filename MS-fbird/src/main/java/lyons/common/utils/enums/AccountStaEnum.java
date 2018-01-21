@@ -3,7 +3,7 @@ package lyons.common.utils.enums;
 
 /**
  * @Description: 用户常量
- * @ClassName: LoginstaEnum
+ * @ClassName: AccountStaEnum
  * @author: lyons<zhanglei>
  * @date: 2017年1月17日 下午4:25:04
  * @version: [1.0]

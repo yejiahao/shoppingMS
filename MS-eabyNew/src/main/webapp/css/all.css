@@ -55,7 +55,7 @@ strong {
 body {
     font: 12px/18px Arial, Helvetica, sans-serif, "宋体";
     color: #6e6e6e;
-    background: #1b5799 url(../image/listPage/bodybg.png) repeat-x;
+    background: #1b5799 url(/image/listPage/bodybg.png) repeat-x;
 }
 
 a {
@@ -99,7 +99,7 @@ input, select, teatarea {
     float: right;
     height: 18px;
     padding-left: 25px;
-    background: url(../image/listPage/icon.png) no-repeat;
+    background: url(/image/listPage/icon.png) no-repeat;
     color: #dbdbdb;
 }
 
@@ -121,13 +121,13 @@ input, select, teatarea {
     width: 2px;
     height: 18px;
     margin: 0 10px;
-    background: url(../image/listPage/line.gif) no-repeat;
+    background: url(/image/listPage/line.gif) no-repeat;
 }
 
 .iheader {
     width: 100%;
     height: 97px;
-    background: url(../image/listPage/icon.png) repeat-x 0 -120px;
+    background: url(/image/listPage/icon.png) repeat-x 0 -120px;
     overflow: hidden;
 }
 
@@ -170,7 +170,7 @@ input, select, teatarea {
 .nav li {
     float: left;
     margin-right: 10px;
-    background: url(../image/listPage/icon.png) repeat-x 0 -224px;
+    background: url(/image/listPage/icon.png) repeat-x 0 -224px;
 }
 
 .nav li a {
@@ -192,13 +192,13 @@ input, select, teatarea {
 }
 
 .nav li a:hover, .nav li.on a {
-    background: url(../image/listPage/navbg.png) no-repeat left top;
+    background: url(/image/listPage/navbg.png) no-repeat left top;
     color: #2777ad;
     text-decoration: none;
 }
 
 .nav li a:hover span, .nav li.on a span {
-    background: url(../image/listPage/navbg.png) no-repeat right top;
+    background: url(/image/listPage/navbg.png) no-repeat right top;
 }
 
 .selectBox {
@@ -221,7 +221,7 @@ input, select, teatarea {
     width: 874px;
     height: 317px;
     padding-top: 193px;
-    background: url(../image/listPage/login.jpg) no-repeat;
+    background: url(/image/listPage/login.jpg) no-repeat;
     margin: 0 auto 70px;
 }
 
@@ -270,7 +270,7 @@ input, select, teatarea {
     float: left;
     width: 5px;
     height: 32px;
-    background: url(../image/listPage/icon.png) no-repeat;
+    background: url(/image/listPage/icon.png) no-repeat;
     overflow: hidden;
 }
 
@@ -293,7 +293,7 @@ input, select, teatarea {
     width: 195px;
     height: 32px;
     line-height: 32px;
-    background: url(../image/listPage/icon.png) repeat-x 0 -84px;
+    background: url(/image/listPage/icon.png) repeat-x 0 -84px;
 }
 
 .loginInput2 {
@@ -305,7 +305,7 @@ input, select, teatarea {
     float: left;
     width: 80px;
     height: 32px;
-    background: url(../image/listPage/btn01.gif) no-repeat;
+    background: url(/image/listPage/btn01.gif) no-repeat;
     color: #5d7731;
     font-size: 14px;
 }
@@ -351,7 +351,7 @@ input, select, teatarea {
 }
 
 .leftTd {
-    background: url(../image/listPage/tdbg.png) repeat-y 0 0;
+    background: url(/image/listPage/tdbg.png) repeat-y 0 0;
 }
 
 .left li a {
@@ -366,7 +366,7 @@ input, select, teatarea {
 }
 
 .left li a:hover, .left li.on a, .left h3 a:hover, .left h3 a.on {
-    background: url(../image/listPage/liabg.gif) no-repeat;
+    background: url(/image/listPage/liabg.gif) no-repeat;
     color: #fff;
     text-decoration: none;
 }
@@ -375,7 +375,7 @@ input, select, teatarea {
     margin: 40px 0 0 20px;
     padding-left: 20px;
     line-height: 22px;
-    background: url(../image/listPage/icon.png) no-repeat 0 -297px;
+    background: url(/image/listPage/icon.png) no-repeat 0 -297px;
 }
 
 .logout a {
@@ -388,11 +388,11 @@ input, select, teatarea {
     width: 7px;
     height: 100px;
     cursor: pointer;
-    background: url(../image/listPage/pointer.gif) no-repeat;
+    background: url(/image/listPage/pointer.gif) no-repeat;
 }
 
 .pointer2 {
-    background: url(../image/listPage/pointer2.gif) no-repeat;
+    background: url(/image/listPage/pointer2.gif) no-repeat;
 }
 
 /*right*/
@@ -406,7 +406,7 @@ input, select, teatarea {
     padding-left: 20px;
     line-height: 34px;
     color: #494a4c;
-    background: url(../image/listPage/icon.png) no-repeat 0 -315px;
+    background: url(/image/listPage/icon.png) no-repeat 0 -315px;
 }
 
 .current a {
@@ -448,12 +448,12 @@ input, select, teatarea {
     width: 67px;
     height: 25px;
     line-height: 25px;
-    background: url(../image/listPage/btn05.gif) no-repeat;
+    background: url(/image/listPage/btn05.gif) no-repeat;
     padding-left: 20px;
 }
 
 .rightCont .title .action a:hover {
-    background: url(../image/listPage/btn05.gif) no-repeat;
+    background: url(/image/listPage/btn05.gif) no-repeat;
     color: #266392;
     font-weight: normal;
 }
@@ -462,7 +462,7 @@ input, select, teatarea {
 }
 
 .rightCont .title a:hover, .rightCont .title .on a {
-    background: url(../image/listPage/titlebg1.png) no-repeat;
+    background: url(/image/listPage/titlebg1.png) no-repeat;
     text-decoration: none;
     color: #fff;
     font-weight: 700;
@@ -478,7 +478,7 @@ input, select, teatarea {
 }
 
 .rightCont .title a:hover span, .rightCont .title .on a span {
-    background: url(../image/listPage/icon.png) no-repeat 0 -356px;
+    background: url(/image/listPage/icon.png) no-repeat 0 -356px;
 }
 
 .tab1 {
@@ -524,27 +524,27 @@ input, select, teatarea {
     width: 20px;
     height: 20px;
     margin: 0 5px;
-    background: url(../image/listPage/icon.png) no-repeat 0 -381px;
+    background: url(/image/listPage/icon.png) no-repeat 0 -381px;
 }
 
 .tabSub {
     cursor: pointer;
     width: 63px;
     height: 27px;
-    background: url(../image/listPage/btn03.gif) no-repeat;
+    background: url(/image/listPage/btn03.gif) no-repeat;
     color: #333;
 }
 
 .tabSub:hover {
     color: #5d7731;
-    background: url(../image/listPage/btn02.gif) no-repeat;
+    background: url(/image/listPage/btn02.gif) no-repeat;
 }
 
 .zixun .title2 {
     height: 31px;
     line-height: 31px;
     padding-left: 25px;
-    background: url(../image/listPage/icon.png) repeat-x 0 -405px;
+    background: url(/image/listPage/icon.png) repeat-x 0 -405px;
     border-bottom: 1px solid #aec7e5;
 }
 
@@ -575,7 +575,7 @@ input, select, teatarea {
     margin-left: 10px;
     text-align: center;
     line-height: 27px;
-    background: url(../image/listPage/btn03.gif) no-repeat;
+    background: url(/image/listPage/btn03.gif) no-repeat;
     color: #333;
 }
 
@@ -590,7 +590,7 @@ input, select, teatarea {
 
 .tab2 .btn03:hover, .fabuzixun .btn03:hover, .tab3 .btn03:hover, .y_btn .btn03:hover, .bbtn03:hover {
     color: #5d7731;
-    background: url(../image/listPage/btn02.gif) no-repeat;
+    background: url(/image/listPage/btn02.gif) no-repeat;
     text-decoration: none;
 }
 
@@ -625,7 +625,7 @@ input, select, teatarea {
 .page .pre, .page .next {
     width: 57px;
     height: 23px;
-    background: url(../image/listPage/page.gif) no-repeat;
+    background: url(/image/listPage/page.gif) no-repeat;
     line-height: 23px;
     text-indent: -9999px;
     border: 1px solid #ccc;
@@ -643,7 +643,7 @@ input, select, teatarea {
 .page .first, .page .last {
     width: 57px;
     height: 23px;
-    background: url(../image/listPage/page_be.gif) no-repeat;
+    background: url(/image/listPage/page_be.gif) no-repeat;
     line-height: 23px;
     text-indent: -9999px;
     border: 1px solid #ccc;
@@ -774,7 +774,7 @@ input, select, teatarea {
     float: left;
     width: 63px;
     height: 27px;
-    background: url(../image/listPage/btn03.gif) no-repeat;
+    background: url(/image/listPage/btn03.gif) no-repeat;
     margin-right: 5px;
     color: #333;
 }
@@ -832,7 +832,7 @@ input, select, teatarea {
     margin-left: 10px;
     text-align: center;
     line-height: 25px;
-    background: url(../image/listPage/btn06.gif) no-repeat;
+    background: url(/image/listPage/btn06.gif) no-repeat;
     color: #266392;
 }
 
@@ -845,7 +845,7 @@ input, select, teatarea {
     margin-left: 10px;
     text-align: center;
     line-height: 27px;
-    background: url(../image/listPage/btn04.gif) no-repeat;
+    background: url(/image/listPage/btn04.gif) no-repeat;
     color: #266392;
 }
 
@@ -859,7 +859,7 @@ input, select, teatarea {
     margin-left: 10px;
     text-align: center;
     line-height: 25px;
-    background: url(../image/listPage/btn09.gif) no-repeat;
+    background: url(/image/listPage/btn09.gif) no-repeat;
     color: #266392;
 }
 
@@ -873,7 +873,7 @@ input, select, teatarea {
     margin-left: 10px;
     text-align: center;
     line-height: 25px;
-    background: url(../image/listPage/btn10.gif) no-repeat;
+    background: url(/image/listPage/btn10.gif) no-repeat;
     color: #266392;
 }
 
@@ -887,7 +887,7 @@ input, select, teatarea {
     margin-left: 10px;
     text-align: center;
     line-height: 25px;
-    background: url(../image/listPage/btn11.gif) no-repeat;
+    background: url(/image/listPage/btn11.gif) no-repeat;
     color: #266392;
 }
 
@@ -1080,7 +1080,7 @@ input, select, teatarea {
     width: 10px;
     height: 10px;
     margin-top: 10px;
-    background: url(../image/listPage/x.gif) no-repeat;
+    background: url(/image/listPage/x.gif) no-repeat;
 }
 
 .forgestPassword .tip {
@@ -1088,7 +1088,7 @@ input, select, teatarea {
     line-height: 26px;
     margin-bottom: 30px;
     padding-left: 25px;
-    background: #edf4fc url(../image/listPage/tip.gif) no-repeat 5px 3px;
+    background: #edf4fc url(/image/listPage/tip.gif) no-repeat 5px 3px;
     color: #969696;
     border: 1px solid #b6dff5
 }
@@ -1097,7 +1097,7 @@ input, select, teatarea {
     position: absolute;
     width: 7px;
     height: 7px;
-    background: url(../image/listPage/round.gif) no-repeat;
+    background: url(/image/listPage/round.gif) no-repeat;
 }
 
 .forgestPassword .c1 {
@@ -1161,14 +1161,14 @@ input, select, teatarea {
     height: 27px;
     text-align: center;
     line-height: 27px;
-    background: url(../image/listPage/btn07.gif) no-repeat;
+    background: url(/image/listPage/btn07.gif) no-repeat;
     display: inline-block;
     margin-left: 10px;
     color: #333
 }
 
 .bbtn07:hover {
-    background: url(../image/listPage/btn07g.gif) no-repeat;
+    background: url(/image/listPage/btn07g.gif) no-repeat;
     text-decoration: none;
 }
 
@@ -1194,7 +1194,7 @@ input, select, teatarea {
 }
 
 .bzk span:hover {
-    background: url(../image/listPage/btn07.gif)
+    background: url(/image/listPage/btn07.gif)
 }
 
 .fright {
@@ -1276,14 +1276,14 @@ input, select, teatarea {
 
 .l-trigger-pressed {
     border: 1px solid #EABE4E;
-    background: #fedc75 url('./image/listPage/bg-trigger-pressed.gif') repeat-x left;
+    background: #fedc75 url('/image/listPage/bg-trigger-pressed.gif') repeat-x left;
 }
 
 /* 下拉框 右侧那个可点击的区域里面的图标 */
 .l-trigger-icon {
     width: 100%;
     height: 100%;
-    background: url('./image/listPage/icon-down.gif') no-repeat 50% 50%;
+    background: url('/image/listPage/icon-down.gif') no-repeat 50% 50%;
 }
 
 /* 下拉面板 */

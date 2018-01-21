@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -10,9 +10,6 @@
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <!--
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    -->
 </head>
 
 <style type="text/css">
@@ -22,14 +19,14 @@
 
     .bg-div {
         position: relative;
-        background-image: url(../../image/page/river.jpg);
+        background-image: url(${pageContext.request.contextPath}/image/page/river.jpg);
         width: 1228px;
         height: 690px;
         margin: 0 auto;
     }
 
     .logo {
-        background-image: url(../../image/page/logo.png);
+        background-image: url(${pageContext.request.contextPath}/image/page/logo.png);
         height: 53px;
         width: 107px;
         float: left;
@@ -52,7 +49,7 @@
     }
 
     .search-button {
-        background-image: url(../../image/page/search-button.png);
+        background-image: url(${pageContext.request.contextPath}/image/page/search-button.png);
         width: 29px;
         height: 29px;
         float: left;
@@ -142,20 +139,18 @@
 </style>
 
 <body>
-<% request.setCharacterEncoding("UTF-8"); %>
 <div class="nav">
     <ul class="clearfix">
-        <li><a href="/lyons.eaby/index.jsp">首 页</a></li>
+        <li><a href="${pageContext.request.contextPath}/index.jsp">首 页</a></li>
     </ul>
 </div>
 <div class="bg-div">
     <div class="search-box">
         <div class="logo"></div>
 
-        <form class="search-form" action="/lyons.eaby/lyons.dao/GoodsDao?key=2" target="_self" id="search-form"
-              method="post">
+        <form class="search-form" action="${pageContext.request.contextPath}/goodsDao?key=2" target="_self"
+              id="search-form" method="post">
             <input type="text" class="search-text" name="keyWord" id="search_input" autocomplete="off"/>
-            <input type="hidden" name="key" value="2"/>
             <input type="submit" class="search-button" value=""/>
         </form>
 
@@ -163,7 +158,7 @@
 </div>
 <div class="suggest" id="search-suggest" style="display:none">
     <ul id="search-result">
-        <li> 运动鞋</li>
+        <li>运动鞋</li>
     </ul>
 </div>
 </body>

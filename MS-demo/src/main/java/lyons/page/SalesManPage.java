@@ -47,7 +47,7 @@ public final class SalesManPage extends ScannerChoice {
 
         // 调用精确查找售货员函数
         ArrayList<SalesMan> salesManList = new QueryPrint().querySalesMan(sName);
-        if (salesManList.size() <= 0) {
+        if (salesManList.isEmpty()) {
             System.err.println("\t！！查无此人！！");
             choiceSalesManNext("updateSalesMan");
         } else {
@@ -120,7 +120,7 @@ public final class SalesManPage extends ScannerChoice {
 
         // 调用精确查找售货员函数
         ArrayList<SalesMan> salesManList = new QueryPrint().querySalesMan(sName);
-        if (salesManList.size() <= 0) {
+        if (salesManList.isEmpty()) {
             System.err.println("\t！！查无此人！！");
             choiceSalesManNext("deleteSalesMan");
         } else {
@@ -136,7 +136,7 @@ public final class SalesManPage extends ScannerChoice {
             do {
                 System.out.println("\n确认删除该售货员：Y/N");
                 String choice = ScannerInfoString();
-                if ("y".equals(choice) || "Y".equals(choice)) {
+                if ("Y".equalsIgnoreCase(choice)) {
                     // 进行刪除-数据库操作
                     boolean boolDeleteSalesMan = new SalesManDao().deleteSalesMan(sName);// 調用刪除功能
 
@@ -146,7 +146,7 @@ public final class SalesManPage extends ScannerChoice {
                         System.err.println("\t！！刪除该售货员失敗！！");
                     }
                     choiceSalesManNext("deleteGoods");
-                } else if ("N".equals(choice) || "n".equals(choice)) {
+                } else if ("N".equalsIgnoreCase(choice)) {
                     MainPage.salesManManagementPage();
                 }
                 System.err.println("\t!!输入有误,请重新输入!!");
@@ -164,7 +164,7 @@ public final class SalesManPage extends ScannerChoice {
 
         ArrayList<SalesMan> salesManList = new SalesManDao().querySalesMan(sName);
 
-        if (salesManList.size() <= 0) {
+        if (salesManList.isEmpty()) {
             System.err.println("\t！没有人员符合查询条件！");
         } else {
             System.out.println("\t\t\t所有售货员列表\n\n");
@@ -184,7 +184,7 @@ public final class SalesManPage extends ScannerChoice {
      */
     public static void displaySalesManPage() {
         ArrayList<SalesMan> salesManList = new SalesManDao().displaySalesMan();
-        if (salesManList.size() <= 0) {
+        if (salesManList.isEmpty()) {
             System.err.println("\t！！售货员列表为空！！");
             MainPage.salesManManagementPage();
         } else {

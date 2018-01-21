@@ -40,7 +40,7 @@ a {
 
 /*讨论留言添加表情*/
 .add_face {
-    background-image: url(../image/listPage/add_emoticons.png);
+    background-image: url(/image/listPage/add_emoticons.png);
     background-repeat: no-repeat;
     height: 24px;
     width: 24px;
@@ -90,7 +90,7 @@ a {
     border-bottom-style: solid;
     border-bottom-color: #434343;
     margin: 0px;
-    background-image: url(../image/listPage/graybg.jpg);
+    background-image: url(/image/listPage/graybg.jpg);
 }
 
 .talk_word {
@@ -126,7 +126,7 @@ a {
     border: 0px;
     margin-left: 2px;
     color: #fff;
-    background-image: url(../image/listPage/talk_send_btn.png);
+    background-image: url(/image/listPage/talk_send_btn.png);
     background-repeat: no-repeat;
     background-position: 0px 0px;
     background-color: transparent;
@@ -154,7 +154,7 @@ a {
     display: block;
     height: 14px;
     width: 16px;
-    background-image: url(../image/listPage/loop.png);
+    background-image: url(/image/listPage/loop.png);
     background-repeat: no-repeat;
     background-position: 0px 0px;
 }
@@ -164,7 +164,7 @@ a {
     display: block;
     height: 14px;
     width: 16px;
-    background-image: url(../image/listPage/loop.png);
+    background-image: url(/image/listPage/loop.png);
     background-repeat: no-repeat;
     background-position: -30px 0px;
 }
@@ -174,7 +174,7 @@ a {
     display: block;
     height: 14px;
     width: 16px;
-    background-image: url(../image/listPage/loop.png);
+    background-image: url(/image/listPage/loop.png);
     background-repeat: no-repeat;
     background-position: -60px 0px;
 }
@@ -325,7 +325,7 @@ a {
     width: 10px;
     height: 30px;
     display: block;
-    background-image: url(../image/listPage/talk_recordtext.png);
+    background-image: url(/image/listPage/talk_recordtext.png);
     background-repeat: no-repeat;
     background-position: left top;
 }
@@ -382,7 +382,7 @@ a {
     width: 10px;
     height: 30px;
     display: block;
-    background-image: url(../image/listPage/talk_recordtextme.png);
+    background-image: url(/image/listPage/talk_recordtextme.png);
     background-repeat: no-repeat;
     background-position: left top;
 }

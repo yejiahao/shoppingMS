@@ -11,14 +11,23 @@ import java.util.Date;
  */
 
 public class OrderForm {
-    private int id = 0;
-    private String username = "";
-    private Date orderDate = null;
-    private String commodity_name = "";
-    private double commodity_price = 0.00;
-    private int sum = 0;// 总数
+    private int id;
+    private String username;
+    private Date orderDate;
+    private String commodityName;
+    private double commodityPrice;
+    private int sum;
 
     public OrderForm() {
+    }
+
+    public OrderForm(int id, String username, Date orderDate, String commodityName, double commodityPrice, int sum) {
+        this.id = id;
+        this.username = username;
+        this.orderDate = orderDate;
+        this.commodityName = commodityName;
+        this.commodityPrice = commodityPrice;
+        this.sum = sum;
     }
 
     public int getId() {
@@ -45,20 +54,20 @@ public class OrderForm {
         this.orderDate = orderDate;
     }
 
-    public String getCommodity_name() {
-        return commodity_name;
+    public String getCommodityName() {
+        return commodityName;
     }
 
-    public void setCommodity_name(String commodity_name) {
-        this.commodity_name = commodity_name;
+    public void setCommodityName(String commodityName) {
+        this.commodityName = commodityName;
     }
 
-    public double getCommodity_price() {
-        return commodity_price;
+    public double getCommodityPrice() {
+        return commodityPrice;
     }
 
-    public void setCommodity_price(double commodity_price) {
-        this.commodity_price = commodity_price;
+    public void setCommodityPrice(double commodityPrice) {
+        this.commodityPrice = commodityPrice;
     }
 
     public int getSum() {
@@ -67,5 +76,17 @@ public class OrderForm {
 
     public void setSum(int sum) {
         this.sum = sum;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderForm{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", orderDate=" + orderDate +
+                ", commodityName='" + commodityName + '\'' +
+                ", commodityPrice=" + commodityPrice +
+                ", sum=" + sum +
+                '}';
     }
 }

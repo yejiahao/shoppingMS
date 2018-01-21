@@ -47,7 +47,6 @@ public class Goods {
     }
 
     public Goods(int gId, String gName, String gDescribe, double gPrice, String gMade, Integer gAmount, Date gCreateDate, String gPic) {
-        super();
         this.gId = gId;
         this.gName = gName;
         this.gDescribe = gDescribe;

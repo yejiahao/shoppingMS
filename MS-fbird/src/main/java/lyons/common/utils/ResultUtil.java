@@ -1,14 +1,12 @@
 /*Copyright ©  2018 Lyons. All rights reserved. */
 package lyons.common.utils;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import com.google.gson.Gson;
+import lyons.common.utils.enums.AccountStaEnum;
 
 import javax.servlet.http.HttpServletRequest;
-
-import com.google.gson.Gson;
-
-import lyons.common.utils.enums.AccountStaEnum;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * @Description: 消息结果集
@@ -20,7 +18,8 @@ import lyons.common.utils.enums.AccountStaEnum;
 public class ResultUtil {
     private static Map<String, Object> resultMap = new LinkedHashMap<>();
 
-    public ResultUtil() {
+    private ResultUtil() {
+        throw new AssertionError();
     }
 
     /**

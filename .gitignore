@@ -1,5 +1,9 @@
-/target/
-*.idea
+*/target/
+*/dist/
+*/build/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
 *.iml
-/dist/
-/build/
+*.ipr

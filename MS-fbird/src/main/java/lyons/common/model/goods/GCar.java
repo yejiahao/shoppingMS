@@ -40,7 +40,6 @@ public class GCar {
     }
 
     public GCar(int gCarId, String gCarUName, int gCarGId, String gCarGName, double gCarPrice, int gCarNumber, String gCarGMade, Date gCarCreateDate) {
-        super();
         this.gCarId = gCarId;
         this.gCarUName = gCarUName;
         this.gCarGId = gCarGId;

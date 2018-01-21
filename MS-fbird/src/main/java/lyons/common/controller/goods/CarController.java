@@ -34,7 +34,7 @@ public class CarController extends BaseController {
     }
 
     /**
-     * @param car
+     * @param gCarGId
      * @Title: carDelete
      * @Description: 从购物车删除
      * @return: String

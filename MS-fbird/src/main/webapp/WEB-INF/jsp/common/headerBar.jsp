@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/jsp/common/global.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,7 +25,7 @@
             </shiro:guest>
             <!--hidden-box-->
             <div data-toggle="hidden-box" id="nav-box1" class="user-box">
-                <img class="my-head" src="${path}resource/static/style/image/common/icon/user-head.jpg"/>
+                <img class="my-head" src="${path}static/style/image/common/icon/user-head.jpg"/>
                 <div class="my-grow">
                     <h1><a href="javascript:void(0)">账号管理</a>&nbsp;|&nbsp;<a href="javascript:void(0);"
                                                                              onclick="logout();">退出</a></h1>
@@ -131,7 +131,7 @@
     <!--scroll-top-->
     <div class="scroll-search">
         <div class="search-litter">
-            <img class="scroll-logo" src="${path}resource/static/style/image/common/icon/ffbird.bmp"/>
+            <img class="scroll-logo" src="${path}static/style/image/common/icon/ffbird.bmp"/>
             <!--scroll-search-->
             <div class="search-wrapper-scroll">
                 <div class="search-box-scroll">
@@ -148,7 +148,7 @@
 </div>
 <!-- top main -->
 <div class="top-main">
-    <img src="${path}resource/static/style/image/common/icon/ffbird-logo.jpg"/>
+    <img src="${path}static/style/image/common/icon/ffbird-logo.jpg"/>
     <div class="search-wrapper">
         <div class="search-box">
             <div data-toggle="arrowdown" id="arrow8" class="search-toggle">
@@ -162,11 +162,11 @@
     <!--two-code-->
     <div class="two-code">
         <h3>飞鸟科技</h3>
-        <img src="${path}resource/static/style/image/common/icon/code.png"/>
+        <img src="${path}static/style/image/common/icon/code.png"/>
         <div class="close-code"><i class="fa fa-times"></i></div>
     </div>
 </div>
 
 </body>
-<script src="${path }resource/script/header.js" type="text/javascript"></script>
+<script src="${path}script/header.js" type="text/javascript"></script>
 </html>

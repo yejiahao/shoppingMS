@@ -28,14 +28,14 @@ public class GoodsAction extends HttpServlet {
     String goodsClassify;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doPost(request, response);
+        doPost(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 
-        // 判断是否登陆
+        // 判断是否登录
         user = (new UserService()).isLogin(request, response).trim();
         if ("".equals(user) || user == null) {
             return;
@@ -48,11 +48,11 @@ public class GoodsAction extends HttpServlet {
         queryCondition(key, keyWord, goodsClassify, request, response);// key代表查询条件，keyWord代表要查询的关键字
     }
 
-    public void queryCondition(String key, String keyWord, String goodsClassify, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void queryCondition(String key, String keyWord, String goodsClassify, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        HttpSession session = request.getSession(true);
+        HttpSession session = request.getSession();
 
         List<Goods> goodsList = new ArrayList<>();
         GoodsServiceImpl goodsService = new GoodsServiceImpl();// 获取商品服务对象

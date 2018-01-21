@@ -1,18 +1,17 @@
 package lyons.user.action;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import lyons.user.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import lyons.user.service.UserService;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * 登陆处理
+ * 登录处理
  *
  * @author Lyons(zhanglei)
  */
@@ -36,8 +35,8 @@ public class LoginAction extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         userMap.put("username", request.getParameter("username"));
-        userMap.put("userpass", request.getParameter("userpass"));
-        userMap.put("isCookie", request.getParameter("isCookie"));
+        userMap.put("password", request.getParameter("password"));
+        userMap.put("remember", request.getParameter("remember"));
 
         userService.userLogin(request, response, userMap);
     }

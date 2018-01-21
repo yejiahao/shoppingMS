@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>导航条</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <style type="text/css">
 
@@ -34,7 +33,7 @@
         width: 120px;
         margin-right: 1px;
         text-align: center;
-        background: url(/lyons.eaby/image/page/nav.png);
+        background: url(${pageContext.request.contextPath}/image/page/nav.png);
     }
 
     .nav li a.on, .nav li a:hover {
@@ -63,11 +62,11 @@
 <body>
 <div>
     <ul class="nav">
-        <li><a class="on" href="index.jsp?first=FP">首 页</a></li>
-        <li><a href="lyons.dao/GoodsDao?key=3">我的订单</a></li>
-        <li><a href="jsp/shoppingCar/lookShoppingCar.jsp"> 购物车</a></li>
-        <li><a href="lyons.dao/GoodsDao?key=4">浏览商品</a></li>
-        <li><a href="jsp/browse/searchByKeyWord.jsp">查询商品</a></li>
+        <li><a class="on" href="${pageContext.request.contextPath}/index.jsp?first=FP">首 页</a></li>
+        <li><a href="${pageContext.request.contextPath}/goodsDao?key=3">我的订单</a></li>
+        <li><a href="${pageContext.request.contextPath}/jsp/shoppingCar/lookShoppingCar.jsp"> 购物车</a></li>
+        <li><a href="${pageContext.request.contextPath}/goodsDao?key=4">浏览商品</a></li>
+        <li><a href="${pageContext.request.contextPath}/jsp/browse/searchByKeyWord.jsp">查询商品</a></li>
     </ul>
 </div>
 </body>

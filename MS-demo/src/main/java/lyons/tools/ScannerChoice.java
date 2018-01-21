@@ -21,7 +21,7 @@ public class ScannerChoice {
         double num = 0.00;
         do {
             Scanner sc = new Scanner(System.in);
-            System.out.print("保留小数点后两位,请输入：");
+            System.out.print("保留小数点后两位,请输入： ");
             String info = sc.next();
 
             String regex = "(([1-9][0-9]*)\\.([0-9]{2}))|[0]\\.([0-9]{2})";// 保留小数点后2位小数
@@ -43,9 +43,7 @@ public class ScannerChoice {
         int num = 0;
         String regex = "([1-9])|([1-9][0-9]+)";// 商品数量
         do {
-            Scanner sc = new Scanner(System.in);
-            System.out.print("请输入：");
-            String nums = sc.next();
+            String nums = ScannerInfoString();
 
             if (nums.matches(regex)) {
                 num = Integer.parseInt(nums);
@@ -63,7 +61,7 @@ public class ScannerChoice {
      */
     public static String ScannerInfoString() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("请输入：");
+        System.out.print("请输入： ");
         return scanner.next();
     }
 
@@ -72,14 +70,14 @@ public class ScannerChoice {
      * 获取用户-删除完商品-下一步
      * 获取用户-添加完商品-下一步
      *
-     * @param 调用者
+     * @param oper
      */
     public static void changedInfoNext(String oper) {
         do {
             System.out.println("是否继续进行-当前操作:(Y/N)");
             String choice = ScannerChoice.ScannerInfoString();
 
-            if ("y".equals(choice) || "Y".equals(choice)) {
+            if ("Y".equalsIgnoreCase(choice)) {
                 // 下面的嵌套if-else 是让用户选择继续操作当前步骤所跳转到指定页面。（因为不同函数调用，跳转的指定函数不同）
                 if ("upateGoodsPage".equals(oper)) {
                     GoodsPage.upateGoodsPage();
@@ -89,7 +87,7 @@ public class ScannerChoice {
                     GoodsPage.addGoodsPage();
                 }
                 // 上面的嵌套结束
-            } else if ("N".equals(choice) || "n".equals(choice)) {
+            } else if ("N".equalsIgnoreCase(choice)) {
                 MainPage.MaintenancePage();
             }
             System.out.println("\n输入有误！请重新输入.");
@@ -102,14 +100,14 @@ public class ScannerChoice {
      * 获取用户-查询-完售货员-下一步
      * 获取用户-删除-完售货员-下一步
      *
-     * @param 调用者
+     * @param oper
      */
     public static void choiceSalesManNext(String oper) {
         do {
             System.out.println("是否继续进行-当前操作:(Y/N)");
             String choice = ScannerChoice.ScannerInfoString();
 
-            if ("y".equals(choice) || "Y".equals(choice)) {
+            if ("Y".equalsIgnoreCase(choice)) {
                 // 下面的嵌套if-else 是让用户选择继续操作当前步骤所跳转到指定页面。（因为不同函数调用，跳转的指定函数不同）
                 if ("updateSalesMan".equals(oper)) {
                     SalesManPage.updateSalesManPage();
@@ -121,7 +119,7 @@ public class ScannerChoice {
                     SalesManPage.querySalesManPage();
                 }
                 // 上面的嵌套结束
-            } else if ("N".equals(choice) || "n".equals(choice)) {
+            } else if ("N".equalsIgnoreCase(choice)) {
                 MainPage.salesManManagementPage();
             }
             System.err.println("\t输入有误！");

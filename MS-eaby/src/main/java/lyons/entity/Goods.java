@@ -9,7 +9,6 @@ import com.sun.rowset.CachedRowSetImpl;
  */
 
 public class Goods {
-
     CachedRowSetImpl rowSet = null;// 表中所有的行集对象
 
     private int pageSize = 5;// 每页显示多少条记录(默认为5条)
@@ -20,8 +19,7 @@ public class Goods {
     public Goods() {
     }
 
-    public Goods(CachedRowSetImpl rowSet, int pageSize, int currentPage,
-                 int totalPRecord, int totalPage) {
+    public Goods(CachedRowSetImpl rowSet, int pageSize, int currentPage, int totalPRecord, int totalPage) {
         this.rowSet = rowSet;
         this.pageSize = pageSize;
         this.currentPage = currentPage;

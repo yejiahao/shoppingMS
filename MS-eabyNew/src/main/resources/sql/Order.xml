@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="lyons.dao.OrderDao">
 
@@ -14,7 +12,7 @@
         <result column="sum" jdbcType="INTEGER" property="sum"/>
     </resultMap>
 
-    <sql id="columnsSelect">SELECT id,username,orderDate,orderDate,commodity_name,commodity_price,sum FROM orderform</sql>
+    <sql id="columnsSelect">SELECT id, username, orderDate, orderDate, commodity_name, commodity_price, sum FROM orderform</sql>
 
     <!-- 查询订单系 -->
 
@@ -88,12 +86,12 @@
     <!-- 批量插入数据 sql不熟悉的可以参考博客：http://www.voidcn.com/blog/mingtianhaiyouwo/article/p-5959712.html -->
     <insert id="insertOrderBatch" parameterType="java.util.List"> <!-- 传来的是 List<order> ,所以是集合collection -->
 
-        INSERT INTO orderForm(username,commodity_name,commodity_price,sum)
+        INSERT INTO orderForm(username, commodity_name, commodity_price, sum)
         <foreach collection="collection" item="item" separator="UNION ALL"> <!-- 注意集合：collection="collection" -->
             (
             SELECT
             '${item.userName}','${item.commodity_name}',${item.commodity_price},${item.sum}
-            from dual
+            FROM dual
             )
         </foreach>
     </insert>

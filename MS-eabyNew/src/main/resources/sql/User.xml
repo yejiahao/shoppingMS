@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="lyons.dao.UserDao">
 
@@ -13,20 +11,11 @@
         <result column="realname" jdbcType="VARCHAR" property="realname"/>
     </resultMap>
 
-    <sql id="queryVip">select username,userpass,phone,address,realname from vip</sql>
-    <sql id="insertUser">INSERT INTO vip(username,userpass,phone,address,realname) </sql>
-
     <!-- 根据用户名查询用户信息 -->
-
-    <!-- Map系collection为Map的键 index：键  item:值 -->
-    <select id="queryByuserNamepassWord" parameterType="java.util.Map" resultMap="userResult"> <!-- 利用Map传参 -->
-        <include refid="queryVip"/>
-        WHERE
-        <foreach collection="userMap" index="userName" item="userPass">
-            username = '${userName}'
-            and userpass = '${userPass}'
-
-        </foreach>
+    <select id="findUser" parameterType="java.util.Map" resultMap="userResult">
+        SELECT username, userpass, phone, address, realname
+        FROM vip
+        WHERE username = #{username} AND userpass = #{password}
     </select>
     <!-- 关于collection 的值
          数组： array
@@ -36,7 +25,6 @@
      -->
 
     <select id="queryByuserName" parameterType="String" resultMap="userResult">
-
         SELECT userName
         FROM vip
         WHERE
@@ -48,15 +36,10 @@
 
     <!-- 注册新用户 -->
     <insert id="insertUser" parameterType="java.util.Map">
-
-        <include refid="insertUser"/>
+        INSERT INTO vip(username, userpass, phone, address, realname)
         VALUES
         (
-        '${username}',
-        '${userpass}',
-        '${phone}',
-        '${address}',
-        '${realname}'
+        #{username}, #{password}, #{phone}, #{address}, #{realname}
         )
     </insert>
 

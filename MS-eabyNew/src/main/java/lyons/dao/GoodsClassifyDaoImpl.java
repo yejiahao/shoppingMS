@@ -1,5 +1,5 @@
 package lyons.dao;
 
-public class GoodsClassifyDaoImpl {
+public class GoodsClassifyDaoImpl implements GoodsClassifyDao {
 
 }

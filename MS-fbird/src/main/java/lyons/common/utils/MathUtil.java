@@ -12,6 +12,10 @@ import org.apache.commons.lang.StringUtils;
  * @version: [1.0]
  */
 public class MathUtil {
+    private MathUtil() {
+        throw new AssertionError();
+    }
+
     /**
      * @param str
      * @Title: getMd5

@@ -102,7 +102,6 @@ $(document).ready(function () {
     clc = setInterval(moveImg, setTime);
 });
 
-
 // 图片二
 $(document).ready(function () {
     var $iBox = $('.imgBox1'),
@@ -208,7 +207,6 @@ $(document).ready(function () {
 
     clc = setInterval(moveImg, setTime);
 });
-
 
 // 图片三
 $(document).ready(function () {

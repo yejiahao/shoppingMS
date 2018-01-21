@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/index.jsp" %>
 <%@ page import="com.sun.rowset.CachedRowSetImpl" %>
 
@@ -15,14 +15,10 @@
     <meta http-equiv="expires" content="0">
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
-    <!--
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    -->
 </head>
 
 <body>
 <jsp:useBean id="goods" class="lyons.entity.Goods" scope="session"/>
-<% request.setCharacterEncoding("UTF-8"); %>
 <br/><br/>
 <center>
     <table border="1" bordercolor="#00ff00" cellpadding="10" cellspacing="2" width="500" height="80">
@@ -49,7 +45,7 @@
             // 检查是否用户自定义了页数
             if (request.getParameter("newPageSize") != null) {
                 PageSize = Integer.parseInt(request.getParameter("newPageSize"));
-                currentPage = 1;//从第一页开始显示
+                currentPage = 1;// 从第一页开始显示
             }
             // 检查是否用户点击了下、上一页操作
             if (request.getParameter("currentPage") != null) {
@@ -62,11 +58,8 @@
             }
 
             // 分页
-            if (totalRecord % PageSize == 0) {
-                totalPages = totalRecord / PageSize;
-            } else {
-                totalPages = totalRecord / PageSize + 1;
-            }
+            totalPages = totalRecord % PageSize == 0 ? totalRecord / PageSize : totalRecord / PageSize + 1;
+
             goods.setCurrentPage(currentPage);
             goods.setPageSize(PageSize);
             goods.setTotalPage(totalPages);
@@ -80,7 +73,7 @@
                     goods.setCurrentPage(1);
                 }
 
-                int index = ((goods.getCurrentPage() - 1) * PageSize) + 1;
+                int index = (goods.getCurrentPage() - 1) * PageSize + 1;
                 rowSet.absolute(index);// 查询位置移动到currentPage页起始位置
 
                 boolean flag = true;
@@ -95,26 +88,26 @@
 
                     String commodity = ID + "," + name + "," + made + "," + price + "," + number + "," + pic + "," + category;// 尾缀#，便于计算购物车价格
                     commodity = commodity.replaceAll("\\p{Blank}", "");
-
-                    String shopCarButton = "<form action='lyons.goods/PutGoodsToCar' method='post'>" +
-                            "<input type='hidden' name='GoodsCar' value=" + commodity + ">" +
-                            "<input type='submit' value='加入购物车'></form>";
-                    String detail = "<form action='jsp/browse/showDetail.jsp' method='post'>" +
-                            "<input type='hidden' name='detail' value=" + commodity + ">" +
-                            "<input type='submit' value='商品详情'></form>";
         %>
         <tr <% if (i % 2 == 0) {%> bgcolor="#FFE4B5" <%} else {%> bgcolor="#FFFACD" <%
             }
-            ;// 隔行换颜色
         %>>
             <td><%= i %>
             </td>
             <td><%= name %>
             </td>
             <td><%= price %>￥</td>
-            <td><%= detail %>
+            <td>
+                <form action="${pageContext.request.contextPath}/jsp/browse/showDetail.jsp" method="post">
+                    <input type="hidden" name="detail" value=<%= commodity%>>
+                    <input type="submit" value="商品详情">
+                </form>
             </td>
-            <td><%= shopCarButton %>
+            <td>
+                <form action="${pageContext.request.contextPath}/putGoodsToCar" method="post">
+                    <input type="hidden" name="GoodsCar" value=<%= commodity%>>
+                    <input type="submit" value="加入购物车">
+                </form>
             </td>
         </tr>
         <%
@@ -150,7 +143,6 @@
                 </form>
             </td>
         </tr>
-
     </table>
 
 </center>

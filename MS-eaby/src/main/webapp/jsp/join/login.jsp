@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/navbar.jsp" %>
 <%@ page import="java.net.URLDecoder" %>
 <%
@@ -9,9 +9,8 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Insert title here</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>登录</title>
 </head>
 <body>
 
@@ -21,19 +20,23 @@
     String username = "";
     String userpass = "";
     Cookie[] cookies = request.getCookies();
-    if (cookies != null && cookies.length > 0) {
-        for (Cookie c : cookies) {
-            if ("username".equals(c.getName())) {
-                username = URLDecoder.decode(c.getValue(), "UTF-8");// 解码并取值、赋值
-            }
-            if ("userpass".equals(c.getName())) {
-                userpass = URLDecoder.decode(c.getValue(), "UTF-8");
-            }
+    int count = 0;
+    for (Cookie c : cookies) {
+        if (count == 2) {
+            break;
+        }
+        if ("username".equals(c.getName())) {
+            username = URLDecoder.decode(c.getValue(), "UTF-8");
+            count++;
+            continue;
+        } else if ("userpass".equals(c.getName())) {
+            userpass = URLDecoder.decode(c.getValue(), "UTF-8");
+            count++;
         }
     }
 %>
 <div align="center">
-    <form action="<%= path %>/lyons.control/HandleLogin" method="post">
+    <form action="${pageContext.request.contextPath}/handleLogin" method="post">
         <table border="0" cellpadding="15" cellspacing="1">
             <tr>
                 <td colspan="2">
@@ -51,7 +54,7 @@
                 </td>
 
                 <td>
-                    <input type="submit" value="登陆"/>
+                    <input type="submit" value="登录"/>
                 </td>
             </tr>
         </table>

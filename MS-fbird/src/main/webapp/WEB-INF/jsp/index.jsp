@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+﻿<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -126,11 +126,11 @@
             <!--content-->
             <div class="content">
                 <ul class="imgBox">
-                    <li><a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/1.jpg"></a></li>
-                    <li><a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/2.jpg"></a></li>
-                    <li><a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/3.jpg"></a></li>
-                    <li><a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/4.jpg"></a></li>
-                    <li><a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/5.jpg"></a></li>
+                    <li><a href="javascript:void(0)"><img src="/static/style/image/fbird/1.jpg"></a></li>
+                    <li><a href="javascript:void(0)"><img src="/static/style/image/fbird/2.jpg"></a></li>
+                    <li><a href="javascript:void(0)"><img src="/static/style/image/fbird/3.jpg"></a></li>
+                    <li><a href="javascript:void(0)"><img src="/static/style/image/fbird/4.jpg"></a></li>
+                    <li><a href="javascript:void(0)"><img src="/static/style/image/fbird/5.jpg"></a></li>
                 </ul>
                 <div class="currentNum">
                     <span class="imgNum mark-color"></span>
@@ -143,39 +143,39 @@
                 <div class="control to-right"><i class="fa fa-angle-right"></i></div>
             </div>
             <a style="float: left" href="javascript:void(0)"><img
-                    src="../resource/static/style/image/fbird/6.6.jpg"/></a>
+                    src="/static/style/image/fbird/6.6.jpg"/></a>
             <!--content-down-->
             <div class="content-down">
                 <ul class="imgBox1">
                     <li>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/01.png"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/02.jpg"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/03.png"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/04.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/01.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/02.jpg"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/03.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/04.png"/></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/01.png"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/02.jpg"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/03.png"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/04.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/01.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/02.jpg"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/03.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/04.png"/></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/01.png"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/02.jpg"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/03.png"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/04.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/01.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/02.jpg"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/03.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/04.png"/></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/01.png"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/02.jpg"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/03.png"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/04.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/01.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/02.jpg"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/03.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/04.png"/></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/01.png"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/02.jpg"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/03.png"/></a>
-                        <a href="javascript:void(0)"><img src="../resource/static/style/image/fbird/04.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/01.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/02.jpg"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/03.png"/></a>
+                        <a href="javascript:void(0)"><img src="/static/style/image/fbird/04.png"/></a>
                     </li>
                 </ul>
                 <div class="currentNum-down">
@@ -189,7 +189,7 @@
                 <div class="control1 to-right1"><i class="fa fa-angle-right"></i></div>
             </div>
             <a style="float: left" href="javascript:void(0)"><img
-                    src="../resource/static/style/image/fbird/15.jpg"/></a>
+                    src="/static/style/image/fbird/15.jpg"/></a>
         </div>
         <!--right-sidbar-->
         <div class="right-sidebar">
@@ -226,7 +226,7 @@
             <!--user-info-->
             <div class="user-info">
                 <div class="gold-top">
-                    <img width="62px" height="62px" src="${path}resource/static/style/image/common/icon/user-head.jpg"/>
+                    <img width="62px" height="62px" src="${path}static/style/image/common/icon/user-head.jpg"/>
                 </div>
                 <shiro:authenticated>
                     <div class="inner-user fa-green">
@@ -245,55 +245,55 @@
             <div class="service">
                 <h3>便民服务</h3>
                 <div id="service-1" class="service-cell service-z">
-                    <h5 class="service-i"><img src="/resource/static/style/image/common/service/phone.png"/></h5>
+                    <h5 class="service-i"><img src="/static/style/image/common/service/phone.png"/></h5>
                     <h6>话费</h6>
                     <i class="fa fa-angle-down"></i>
                 </div>
                 <div class="service-cell">
-                    <h5 class="service-i"><img src="/resource/static/style/image/common/service/game.png"/></h5>
+                    <h5 class="service-i"><img src="/static/style/image/common/service/game.png"/></h5>
                     <h6>游戏</h6>
                     <i class="fa fa-angle-down"></i>
                 </div>
                 <div class="service-cell">
-                    <h5 class="service-i"><img src="/resource/static/style/image/common/service/plane.png"/></h5>
+                    <h5 class="service-i"><img src="/static/style/image/common/service/plane.png"/></h5>
                     <h6>旅行</h6>
                     <i class="fa fa-angle-down"></i>
                 </div>
                 <div class="service-cell">
-                    <h5 class="service-i"><img src="/resource/static/style/image/common/service/save.png"/></h5>
+                    <h5 class="service-i"><img src="/static/style/image/common/service/save.png"/></h5>
                     <h6>保险</h6>
                     <i class="fa fa-angle-down"></i>
                 </div>
                 <div class="service-cell">
-                    <h5 class="service-i"><img src="/resource/static/style/image/common/service/lottery.png"/></h5>
+                    <h5 class="service-i"><img src="/static/style/image/common/service/lottery.png"/></h5>
                     <h6>彩票</h6>
                 </div>
                 <div class="service-cell">
-                    <h5 class="service-i"><img src="/resource/static/style/image/common/service/move.png"/></h5>
+                    <h5 class="service-i"><img src="/static/style/image/common/service/move.png"/></h5>
                     <h6>电影</h6>
                 </div>
                 <div class="service-cell">
-                    <h5 class="service-i"><img src="/resource/static/style/image/common/service/eat.png"/></h5>
+                    <h5 class="service-i"><img src="/static/style/image/common/service/eat.png"/></h5>
                     <h6>点外卖</h6>
                 </div>
                 <div class="service-cell">
-                    <h5 class="service-i"><img src="/resource/static/style/image/common/service/money.png"/></h5>
+                    <h5 class="service-i"><img src="/static/style/image/common/service/money.png"/></h5>
                     <h6>理财</h6>
                 </div>
                 <div class="service-cell">
-                    <h5 class="service-i"><img src="/resource/static/style/image/common/service/book.png"/></h5>
+                    <h5 class="service-i"><img src="/static/style/image/common/service/book.png"/></h5>
                     <h6>电子书</h6>
                 </div>
                 <div class="service-cell">
-                    <h5 class="service-i"><img src="/resource/static/style/image/common/service/miusc.png"/></h5>
+                    <h5 class="service-i"><img src="/static/style/image/common/service/music.png"/></h5>
                     <h6>音乐</h6>
                 </div>
                 <div class="service-cell">
-                    <h5 class="service-i"><img src="/resource/static/style/image/common/service/bag.png"/></h5>
+                    <h5 class="service-i"><img src="/static/style/image/common/service/bag.png"/></h5>
                     <h6>水电煤</h6>
                 </div>
                 <div class="service-cell">
-                    <h5 class="service-i"><img src="/resource/static/style/image/common/service/more.png"/></h5>
+                    <h5 class="service-i"><img src="/static/style/image/common/service/more.png"/></h5>
                     <h6>请期待</h6>
                 </div>
             </div>
@@ -323,7 +323,6 @@
     </div>
 </div>
 </div>
-
 
 <!--main-->
 <div class="main">
@@ -365,15 +364,15 @@
                         class="">3</span></span></h1>
                 <div class="inner-show">
                     <a href="javascript:void(0)">
-                        <img src="../resource/static/style/image/fbird/inner1.png">
+                        <img src="/static/style/image/fbird/inner1.png">
                         <p class="price-info">￥118.00</p>
                     </a>
                     <a href="javascript:void(0)">
-                        <img src="../resource/static/style/image/fbird/inner2.png">
+                        <img src="/static/style/image/fbird/inner2.png">
                         <p>￥118.00</p>
                     </a>
                     <a href="javascript:void(0)">
-                        <img src="../resource/static/style/image/fbird/inner3.png">
+                        <img src="/static/style/image/fbird/inner3.png">
                         <p>￥118.00</p>
                     </a>
                     <h3><a href="$">更多店铺上新</a><i class="fa fa-angle-right"></i></h3>
@@ -392,11 +391,11 @@
                 <!--<h3 class="text_shadow">天猫美妆<span>04-19 10:00</span><span class="follow">√&nbsp;<a href="javascript:void(0)">已关注</a>&nbsp;|&nbsp;<a href="javascript:void(0)">取消</a></span></h3>-->
                 <p>【美妆课堂】“羽”你相约步步惊情 若曦四爷再续... <a href="javascript:void(0)" style="color: #5684bc;">查看全文</a></p>
                 <a href="javascript:void(0)"><img width="80px" height="80px"
-                                                  src="../resource/static/style/image/fbird/dynamic1.jpg"></a>
+                                                  src="/static/style/image/fbird/dynamic1.jpg"></a>
                 <a href="javascript:void(0)"><img width="80px" height="80px"
-                                                  src="../resource/static/style/image/fbird/dynamic2.jpg"></a>
+                                                  src="/static/style/image/fbird/dynamic2.jpg"></a>
                 <a href="javascript:void(0)"><img width="80px" height="80px"
-                                                  src="../resource/static/style/image/fbird/dynamic3.jpg"></a>
+                                                  src="/static/style/image/fbird/dynamic3.jpg"></a>
                 <h6><a href="javascript:void(0)">评论(26)</a></h6>
                 <h4><a href="javascript:void(0)">更多动态&nbsp;</a><i class="fa fa-angle-right"></i></h4>
                 <div class="arrow"></div>
@@ -410,8 +409,8 @@
         </div>
         <!--last-->
         <div class="last-box">
-            <img src="../resource/static/style/image/fbird/last1.png"/>
-            <img src="../resource/static/style/image/fbird/last2.jpg"/>
+            <img src="/static/style/image/fbird/last1.png"/>
+            <img src="/static/style/image/fbird/last2.jpg"/>
         </div>
     </div>
 
@@ -429,7 +428,7 @@
 </div>
 
 </body>
-<script src="${path}resource/script/main-img-show.js" type="text/javascript"></script>
-<script src="${path}resource/script/main.js" type="text/javascript"></script>
-<script src="${path}resource/script/goods.js" type="text/javascript"></script>
+<script src="${path}script/main-img-show.js" type="text/javascript"></script>
+<script src="${path}script/main.js" type="text/javascript"></script>
+<script src="${path}script/goods.js" type="text/javascript"></script>
 </html>

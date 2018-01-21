@@ -1,9 +1,9 @@
 /*Copyright ©  2018 Lyons. All rights reserved. */
 package lyons.common.model.user;
 
-import java.util.Date;
-
 import net.sf.json.JSONObject;
+
+import java.util.Date;
 
 /**
  * @Description: 用户实体类
@@ -57,7 +57,7 @@ public class UUser {
     public UUser() {
     }
 
-    public UUser(String uName, int uId, String uNickName, int uSex, String uPassword, String uEmail, int uState, int uIsSeller, Date ulastLoginTime, Date uCreateDate) {
+    public UUser(String uName, int uId, String uNickName, int uSex, String uPassword, String uEmail, int uState, int uIsSeller, Date uLastLoginTime, Date uCreateDate) {
         this.uName = uName;
         this.uId = uId;
         this.uNickName = uNickName;
@@ -66,7 +66,7 @@ public class UUser {
         this.uEmail = uEmail;
         this.uState = uState;
         this.uIsSeller = uIsSeller;
-        this.uLastLoginTime = ulastLoginTime;
+        this.uLastLoginTime = uLastLoginTime;
         this.uCreateDate = uCreateDate;
     }
 
@@ -143,8 +143,8 @@ public class UUser {
         return uLastLoginTime;
     }
 
-    public void setulastLoginTime(Date ulastLoginTime) {
-        this.uLastLoginTime = ulastLoginTime;
+    public void setulastLoginTime(Date uLastLoginTime) {
+        this.uLastLoginTime = uLastLoginTime;
     }
 
     public Date getuCreateDate() {

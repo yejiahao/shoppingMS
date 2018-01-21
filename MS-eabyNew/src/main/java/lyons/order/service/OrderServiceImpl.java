@@ -61,12 +61,12 @@ public class OrderServiceImpl {
     /**
      * 删除单个“所有”订单
      *
-     * @param idstr
+     * @param idStr
      * @return
      */
-    public void deleteOrderOneById(String idstr) {
-        if (!(idstr == null || "".equals(idstr))) {
-            int id = Integer.parseInt(idstr);
+    public void deleteOrderOneById(String idStr) {
+        if (!(idStr == null || "".equals(idStr))) {
+            int id = Integer.parseInt(idStr);
             dao.deleteOrderOneById(id);
         }
         return;

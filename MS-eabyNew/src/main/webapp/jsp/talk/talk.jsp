@@ -1,27 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>对话交流</title>
     <!--讨论区滚动条begin-->
-    <link rel="stylesheet" type="text/css" href="<%= basePath %>resource/css/jscrollpane1.css"/>
-    <script src="<%= basePath %>resource/js/jquery-1.8.0.min.js" type="text/javascript" charset="UTF-8"></script>
-    <script type="text/javascript" src="<%= basePath %>resource/js/talk/jquery.mousewheel.js" charset="UTF-8"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/jscrollpane1.css"/>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js" charset="UTF-8"></script>
+    <script src="${pageContext.request.contextPath}/js/talk/jquery.mousewheel.js" charset="UTF-8"></script>
     <!-- the jScrollPane script -->
-    <script type="text/javascript" src="<%= basePath %>resource/js/talk/jquery.jscrollpane.min.js"
-            charset="UTF-8"></script>
-    <script type="text/javascript" src="<%= basePath %>resource/js/talk/scroll-startstop.events.jquery.js"
-            charset="UTF-8"></script>
+    <script src="${pageContext.request.contextPath}/js/talk/jquery.jscrollpane.min.js" charset="UTF-8"></script>
+    <script src="${pageContext.request.contextPath}/js/talk/scroll-startstop.events.jquery.js" charset="UTF-8"></script>
     <!--讨论区滚动条end-->
-    <script type="text/javascript" src="<%= basePath %>resource/js/talk/talk.js" charset="UTF-8"></script>
+    <script src="${pageContext.request.contextPath}/js/talk/talk.js" charset="UTF-8"></script>
 </head>
 <body>
-<input type="hidden" value="<%= basePath %>" id="basePath"/>
+<input type="hidden" value="${pageContext.request.contextPath}/" id="basePath"/>
 <br/>
 <div class="talk">
     <div class="talk_title"><span>正在与卖家公众号对话</span></div>

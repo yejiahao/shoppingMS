@@ -26,7 +26,7 @@
     width: 120px;
     margin-right: 1px;
     text-align: center;
-    background: url(../resource/image/page/nav.png);
+    background: url(/image/page/nav.png);
 }
 
 .nav li a.on, .nav li a:hover {

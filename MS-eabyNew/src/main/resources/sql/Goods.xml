@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="lyons.dao.GoodsDao"><!-- 面向接口编程。与此类关联，作为空间名 -->
 
@@ -59,17 +57,17 @@
     <!-- 批量更新商品数量 -->
     <update id="updateGoods" parameterType="java.util.List">
 
-        begin
+        BEGIN
         <foreach collection="list" item="item" index="index" separator=";">
-            update commodity
+            UPDATE commodity
             <set>
                 <if test="item.commodity_balance!=null and item.commodity_balance!=''">
                     commodity_balance = ${item.commodity_balance},
                 </if>
             </set>
-            where commodity_number = ${item.commodity_number}
+            WHERE commodity_number = ${item.commodity_number}
         </foreach>
-        ;end;
+        ;END;
 
     </update>
 

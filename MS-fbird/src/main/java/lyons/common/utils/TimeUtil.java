@@ -13,9 +13,8 @@ import java.util.Date;
  * @version: [1.0]
  */
 public class TimeUtil {
-    public static void main(String[] args) {
-        System.out.println(getYMD() + "       " + getYMDHMS());
-        System.out.println(new Date());
+    private TimeUtil() {
+        throw new AssertionError();
     }
 
     /**

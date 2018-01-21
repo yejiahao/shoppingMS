@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/jsp/common/global.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <%@ include file="/WEB-INF/jsp/common/basejs.jsp" %>
-    <link rel="stylesheet" href="${path}resource/static/style/css/login.css"/>
+    <link rel="stylesheet" href="${path}static/style/css/login.css"/>
 
 </head>
 <body>
@@ -21,7 +21,7 @@
 <!-- content -->
 <div class="content-top-login">
     <div class="login-left">
-        <img alt="图片被误伤" src="${path}resource/static/style/image/ad/ad-login.jpg">
+        <img alt="图片被误伤" src="${path}static/style/image/ad/ad-login.jpg">
         <!-- 	<Canvas id="ad-login">图片被误伤</Canvas> -->
     </div>
     <div class="login-right">
@@ -63,5 +63,5 @@
 <%@ include file="/WEB-INF/jsp/common/footer.jsp" %>
 </div>
 </body>
-<script src="${path}resource/script/login.js" type="text/javascript"></script>
+<script src="${path}script/login.js" type="text/javascript"></script>
 </html>

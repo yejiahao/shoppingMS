@@ -5,7 +5,7 @@ import lyons.common.model.user.UUser;
 
 /**
  * @Description: 用户服务类
- * @ClassName: UserSevice
+ * @ClassName: UserService
  * @author: lyons<zhanglei>
  * @date: 2017年1月17日 下午5:56:55
  * @version: [1.0]

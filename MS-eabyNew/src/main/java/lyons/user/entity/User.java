@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
- * 用户登陆实体类
+ * 用户登录实体类
  *
  * @author Lyons(zhanglei)
  */

@@ -6,7 +6,7 @@ import lyons.dao.SalesManDao;
 import lyons.entity.Goods;
 import lyons.entity.Gsales;
 import lyons.entity.SalesMan;
-import lyons.tools.Arith;
+import lyons.tools.ArithUtil;
 import lyons.tools.QueryPrint;
 import lyons.tools.ScannerChoice;
 
@@ -142,15 +142,13 @@ public final class MainPage extends ScannerChoice {
 
                             ArrayList<SalesMan> salesManInfo = new SalesManDao().checkStandLog(sName);// 以用户名从数据库中获取用户密码.
 
-                            if (salesManInfo == null || salesManInfo.size() == 0)// 没有此用户的情况！
-                            {
+                            if (salesManInfo.isEmpty()) {// 没有此用户的情况！
                                 System.err.println("\t!!用户名输入有误!!\n");
                                 System.out.println("\n剩余登陆次数：" + loginTimes);
                             } else {
                                 SalesMan salesMan = salesManInfo.get(0);// 此地，只返回了一组数值，只遍历1次即可
 
-                                if (sPssWord.equals(salesMan.getSPassWord()))// 验证密码，登陆成功了！！
-                                {
+                                if (sPssWord.equals(salesMan.getSPassWord())) {// 验证密码，登陆成功了！！
                                     System.out.println("\t  ---账户成功登陆---");
                                     shoppingSettlementPage(salesMan.getSId());// 参数为营业员编号sId
                                 } else {
@@ -223,7 +221,7 @@ public final class MainPage extends ScannerChoice {
             if ("0".equals(choNext)) {
                 checkStandLogPage();
 
-            } else if ("s".equals(choNext) || "S".equals(choNext)) {
+            } else if ("S".equalsIgnoreCase(choNext)) {
                 System.out.println("\n--请输入商品关键字--");
 
                 int gid = QueryPrint.querySettlement();// 当商品件数有且只有一件时返回商品gid号，商品已售空时返回 -1. >1件时返回-2 . 查无此商品时返回-3
@@ -243,7 +241,7 @@ public final class MainPage extends ScannerChoice {
                         int shoppingGid = ScannerNum();
 
                         ArrayList<Goods> goodsList = new QueryPrint().queryGoodsKey(shoppingGid, null);
-                        if (goodsList == null || goodsList.size() == 0) {
+                        if (goodsList.isEmpty()) {
                             System.err.println("\t！！查无此商品 ！！\n");
                         } else {
                             Goods goods = goodsList.get(0);
@@ -258,21 +256,21 @@ public final class MainPage extends ScannerChoice {
                                     System.err.println("\t！！仓库储备不足！！");
                                     System.out.println("--请重新输入购买数量--");
                                 } else {
-                                    double allPrice = Arith.mul(choicegoodsNum, gPrice);// 利用BigDecimal作乘法运算
+                                    double allPrice = ArithUtil.mul(choicegoodsNum, gPrice);// 利用BigDecimal作乘法运算
                                     System.out.println("\t\t\t  购物车结算\n");
                                     System.out.println("\t\t商品名称\t商品单价\t购买数量\t总价\n");
                                     System.out.println("\t\t" + goods.getGname() + "\t" + gPrice + " $\t" + choicegoodsNum + "\t" + allPrice + " $\n");
 
                                     do {
-                                        System.out.println("确认购买：Y/N");
+                                        System.out.println("确认购买： Y/N");
                                         String choShopping = ScannerInfoString();
                                         if ("y".equals(choShopping) || "Y".equals(choShopping)) {
-                                            System.out.println("\n总价：" + allPrice + " $");
+                                            System.out.println("\n总价： " + allPrice + " $");
                                             System.out.println("\n实际缴费金额");
 
                                             do {
                                                 double amount = ScannerInfo();
-                                                double balance = Arith.sub(amount, allPrice);// 用户交钱与购买物品总价间的差额
+                                                double balance = ArithUtil.sub(amount, allPrice);// 用户交钱与购买物品总价间的差额
                                                 if (balance < 0) {
                                                     System.err.println("\t！！缴纳金额不足！！");
                                                     System.out.println("\n请重新输入缴纳金额($)");
@@ -292,7 +290,7 @@ public final class MainPage extends ScannerChoice {
                                                     boolean update = new GoodsDao().updateGoods(3, newGoods);
 
                                                     if (update && insert) {
-                                                        System.out.println("找零：" + balance);
+                                                        System.out.println("找零： " + balance);
                                                         System.out.println("\n谢谢光临，欢迎下次惠顾");
                                                     } else {
                                                         System.err.println("！支付失败！");// 出现这个错误一定是数据库操作有问题！

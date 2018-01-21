@@ -1,17 +1,15 @@
 package lyons.dao;
 
-import java.io.IOException;
-import java.util.List;
-
 import lyons.db.DbAccess;
 import lyons.order.entity.Order;
-
 import org.apache.ibatis.session.SqlSession;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  * 订单维护类
  * <p>
- * orderForm.sql
  */
 public class OrderDaoImpl implements OrderDao {
     OrderDao orderDao;
@@ -19,7 +17,6 @@ public class OrderDaoImpl implements OrderDao {
     DbAccess dbAccess = new DbAccess();
 
     /**
-     * 查询当前用户全部订单列表-orderForm.sql
      *
      * @return 商品列表数组
      */
@@ -38,7 +35,6 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     /**
-     * 查询订单列表-orderForm.sql
      * 根据用户名+关键字查询
      *
      * @return 商品列表数组
@@ -75,7 +71,6 @@ public class OrderDaoImpl implements OrderDao {
 
         return null;
     }
-
 
     /**
      * 根据商品唯一标识删除单个订单

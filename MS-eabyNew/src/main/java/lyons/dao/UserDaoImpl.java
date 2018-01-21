@@ -1,21 +1,22 @@
 package lyons.dao;
 
-import java.io.IOException;
+import lyons.db.DbAccess;
+import lyons.user.entity.User;
+import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.session.SqlSession;
-
-import lyons.db.DbAccess;
-import lyons.user.entity.User;
-
 /**
  * vip用户维护类
  * <p>
- * orderForm.sql
  */
 public class UserDaoImpl implements UserDao {
+    private static final Logger LOG = LoggerFactory.getLogger(UserDaoImpl.class);
+
     static SqlSession sqlSession;
     static DbAccess dbAccess = new DbAccess();
 
@@ -26,17 +27,16 @@ public class UserDaoImpl implements UserDao {
      * @return
      */
     @Override
-    public List<User> queryByuserNamepassWord(Map<String, Object> map) {
+    public List<User> findUser(Map<String, String> map) {
         try {
             sqlSession = dbAccess.getSqlSession();
-            return sqlSession.getMapper(UserDao.class).queryByuserNamepassWord(map);
-        } catch (IOException e) {
-            e.printStackTrace();
+            return sqlSession.getMapper(UserDao.class).findUser(map);
+        } catch (Exception e) {
+            LOG.error("queryByUsernamePassword: " + e.getMessage(), e);
         } finally {
             sqlSessionClose();
         }
-
-        return new ArrayList<>();
+        return null;
     }
 
     /**
@@ -48,14 +48,12 @@ public class UserDaoImpl implements UserDao {
         try {
             sqlSession = dbAccess.getSqlSession();
             return sqlSession.getMapper(UserDao.class).queryByuserName(username);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            LOG.error("queryByUsername: " + e.getMessage(), e);
         } finally {
             sqlSessionClose();
         }
-
         return new ArrayList<>();
-
     }
 
     /**
@@ -69,13 +67,11 @@ public class UserDaoImpl implements UserDao {
             sqlSession = dbAccess.getSqlSession();
             sqlSession.getMapper(UserDao.class).insertUser(registerMap);
             sqlSession.commit();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        } catch (Exception e) {
+            LOG.error("insertUser: " + e.getMessage(), e);
         } finally {
             sqlSessionClose();
         }
-
     }
 
     /*

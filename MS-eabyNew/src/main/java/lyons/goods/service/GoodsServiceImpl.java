@@ -18,7 +18,7 @@ public class GoodsServiceImpl {
     String[] goodsArr;
     Map<String, Integer> map;
     List<Order> listOrder;
-    List<Goods> Listgoods;
+    List<Goods> listGoods;
     GoodsDaoImpl goodsDaoImpl;
 
     public GoodsServiceImpl() {
@@ -54,8 +54,7 @@ public class GoodsServiceImpl {
     public List<Goods> queryGoodsByKeyClassify(String keyWord, String goodsClassify) {
         Goods goodsList = new Goods();
 
-        if (((goodsClassify == null || "".equals(goodsClassify.trim()))
-                && (keyWord == null || "".equals(keyWord)))) {
+        if ((goodsClassify == null || "".equals(goodsClassify.trim())) && (keyWord == null || "".equals(keyWord))) {
             return new ArrayList<>();// 用户关键字与分类都没有输入的时候返回空集合
         }
 
@@ -77,10 +76,10 @@ public class GoodsServiceImpl {
      * @param car
      * @return 2-安踏运动鞋-福州-120-800-002.jpg-1- 10-ipad5-北京-5900-500-010.jpg-4- 10-ipad5-北京-5900-500-010.jpg-4-
      * <p>
-     * commodity_number = goods[0];//商品编号
+     * commodity_number = goods[0];// 商品编号
      * commodity_name = goods[1];
      * commodity_price = Double.parseDouble(goods[3]);
-     * commodity_balance = Integer.parseInt(goods[4]) - 1; // 重新设置商品数量，达到购买的效果，-1代表商品数量减一
+     * commodity_balance = Integer.parseInt(goods[4]) - 1;// 重新设置商品数量，达到购买的效果，-1代表商品数量减一
      */
     public String BuyGoods(String userName, LinkedList<String> car) {
         if (car.size() <= 0) {
@@ -89,7 +88,7 @@ public class GoodsServiceImpl {
 
         map = new Hashtable<>();
         listOrder = new ArrayList<>();
-        Listgoods = new ArrayList<>();
+        listGoods = new ArrayList<>();
 
         String temp = null;
         map.clear();
@@ -114,25 +113,25 @@ public class GoodsServiceImpl {
                             return "数据库中商品数量不足";
                         }
                         map.put(temp, map.get(temp) - 1);// map已经存在该商品,再次出现故只需将数量减一即可
-                        System.out.println(i + "+递减进入：" + map.get(temp));
+                        System.out.println(i + "+递减进入： " + map.get(temp));
                     } else {
                         map.put(temp, Integer.parseInt(goodsArr[4]) - 1);
                         if (map.get(temp) <= 0) {
                             return "数据库中商品数量不足";
                         }
 
-                        System.out.println(i + "-首次进入：" + map.get(temp));
+                        System.out.println(i + "-首次进入： " + map.get(temp));
                     }
                     goods.setCommodity_balance(map.get(temp));
                 }
 
             }
             listOrder.add(order);
-            Listgoods.add(goods);
+            listGoods.add(goods);
 
         }
         orderServiceImpl.insertOrderBatch(listOrder);
-        goodsDaoImpl.updateGoods(Listgoods);
+        goodsDaoImpl.updateGoods(listGoods);
 
         return "您已将购物车中的商品买回家了";
     }

@@ -15,24 +15,24 @@ import java.util.List;
 
 @SuppressWarnings("serial")
 public class OrderAction extends HttpServlet {
-    int keys = -1;// 默认的查询值（即：default ）
+    int keys = -1;// 默认的查询值（即：default）
     String user;// 当前用户
     String key;// 选择查询条件
     String keyWord;// 查询的关键字
     String queryUserName;// 查询的用户名
     String id;// 商品唯一标识id
-    String ids[];// 批量删除商品的ids
+    String[] ids;// 批量删除商品的ids
     List<Order> orderList = new ArrayList<>();
     OrderServiceImpl orderService = new OrderServiceImpl();// 获取订单服务对象
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doPost(request, response);
+        doPost(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        // 判断是否登陆
+        // 判断是否登录
         user = (new UserService()).isLogin(request, response).trim();
         if ("".equals(user) || user == null) {
             return;
@@ -54,12 +54,12 @@ public class OrderAction extends HttpServlet {
         if (key.matches("[1-3]")) {
             keyWord = request.getParameter("keyWord");
             queryUserName = request.getParameter("queryUserName");
-            String str[] = {key, keyWord, queryUserName, user};
+            String[] str = {key, keyWord, queryUserName, user};
             queryCondition(str, request, response);// key代表查询条件，keyWord代表要查询的关键字
         } else if (key.matches("[4-5]")) {
             id = request.getParameter("id");
             ids = request.getParameterValues("deleteId");
-            String str[] = {key, id};
+            String[] str = {key, id};
             deleteCondition(str, ids, request, response);
         }
 
@@ -74,9 +74,9 @@ public class OrderAction extends HttpServlet {
      * @throws IOException
      * @throws ServletException
      */
-    public void queryCondition(String str[], HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void queryCondition(String[] str, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession(true);
+        HttpSession session = request.getSession();
 
         key = str[0];// 选择查询条件
         keyWord = str[1];// 查询的关键字
@@ -111,14 +111,15 @@ public class OrderAction extends HttpServlet {
      * 根据条件选择删除订单的业务
      *
      * @param str
+     * @param ids
      * @param request
      * @param response
      * @throws IOException
      * @throws ServletException
      */
-    public void deleteCondition(String str[], String ids[], HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void deleteCondition(String[] str, String[] ids, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession(true);
+        HttpSession session = request.getSession();
 
         key = str[0];
         id = str[1];

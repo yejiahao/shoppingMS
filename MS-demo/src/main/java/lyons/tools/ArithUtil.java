@@ -11,10 +11,11 @@ import java.math.BigDecimal;
  * @author lyons(zhanglei)
  */
 
-public class Arith {
+public class ArithUtil {
     private static final int DEF_DIV_SCALE = 2;// 默认除法运算精度
 
-    private Arith() {
+    private ArithUtil() {
+        throw new AssertionError();
     }
 
     /**

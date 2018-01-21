@@ -125,7 +125,7 @@ public final class GoodsPage extends ScannerChoice {
         do {
             System.out.println("\n确认删除该商品：Y/N");
             String choice = ScannerInfoString();
-            if ("y".equals(choice) || "Y".equals(choice)) {
+            if ("Y".equalsIgnoreCase(choice)) {
                 // 进行刪除-数据库操作
                 boolean boolDeleteGoods = new GoodsDao().deleteGoods(gid);// 調用刪除功能
 
@@ -135,7 +135,7 @@ public final class GoodsPage extends ScannerChoice {
                     System.err.println("\n\t！！刪除该商品失敗！！");
                 }
                 changedInfoNext("deleteGoodsPage");
-            } else if ("N".equals(choice) || "n".equals(choice)) {
+            } else if ("N".equalsIgnoreCase(choice)) {
                 MainPage.MaintenancePage();
             }
             System.out.println("\t!!输入有误,请重新输入!!\n");
@@ -171,12 +171,11 @@ public final class GoodsPage extends ScannerChoice {
                         }
                         // 调用查询功能
                         ArrayList<Goods> goodsList = new GoodsDao().queryGoods(choice);
-                        if (goodsList == null || goodsList.size() <= 0) {
+                        if (goodsList.isEmpty()) {
                             System.err.println("\n\t!!您查询的商品不存在!!\n");
                             queryGoodsPage();
                         } else {
-                            if (choice == 1)// 打印目录，不要放在功能函数中，会影响其他方法调用
-                            {
+                            if (choice == 1) {// 打印目录，不要放在功能函数中，会影响其他方法调用
                                 System.out.println("\t\t\t\t\t商品按照 数量升序 列表\n\n");
                             } else if (choice == 2) {
                                 System.out.println("\t\t\t\t\t商品按照 价格升序 列表\n\n");
@@ -241,13 +240,12 @@ public final class GoodsPage extends ScannerChoice {
         System.out.println("\t\t\t\t\t所有商品列表\n\n");
         ArrayList<Goods> goodsList = new GoodsDao().displayGoods();
 
-        if (goodsList.size() <= 0) {
+        if (goodsList.isEmpty()) {
             System.err.println("！库存为空！");
             MainPage.MaintenancePage();
         } else {
             System.out.println("\t商品编号\t\t商品名称\t\t商品价格\t\t商品数量\t\t备注\n");
-            for (int i = 0, length = goodsList.size(); i < length; i++)// 避免重复计算变量，浪费资源！
-            {
+            for (int i = 0, length = goodsList.size(); i < length; i++) {// 避免重复计算变量，浪费资源！
                 Goods goods = goodsList.get(i);
                 System.out.print("\t" + goods.getGid() + "\t\t" + goods.getGname() + "\t\t" + goods.getGprice() + " $\t\t" + goods.getGnum());
 

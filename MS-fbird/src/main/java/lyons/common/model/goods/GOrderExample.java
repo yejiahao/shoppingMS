@@ -37,7 +37,7 @@ public class GOrderExample {
      * @mbg.generated Sun Feb 12 16:52:20 CST 2017
      */
     public GOrderExample() {
-        oredCriteria = new ArrayList<Criteria>();
+        oredCriteria = new ArrayList<>();
     }
 
     /**
@@ -160,7 +160,7 @@ public class GOrderExample {
 
         protected GeneratedCriteria() {
             super();
-            criteria = new ArrayList<Criterion>();
+            criteria = new ArrayList<>();
         }
 
         public boolean isValid() {
@@ -776,14 +776,12 @@ public class GOrderExample {
         }
 
         protected Criterion(String condition) {
-            super();
             this.condition = condition;
             this.typeHandler = null;
             this.noValue = true;
         }
 
         protected Criterion(String condition, Object value, String typeHandler) {
-            super();
             this.condition = condition;
             this.value = value;
             this.typeHandler = typeHandler;
@@ -799,7 +797,6 @@ public class GOrderExample {
         }
 
         protected Criterion(String condition, Object value, Object secondValue, String typeHandler) {
-            super();
             this.condition = condition;
             this.value = value;
             this.secondValue = secondValue;

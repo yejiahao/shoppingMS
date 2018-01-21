@@ -1,16 +1,16 @@
 package lyons.tools;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 import lyons.dao.GoodsDao;
 import lyons.db.DbClose;
 import lyons.db.DbConn;
 import lyons.entity.Goods;
 import lyons.entity.SalesMan;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * 查询&&打印 函数工具(后期优化可能会删)
@@ -26,14 +26,14 @@ public final class QueryPrint {
     /**
      * 模糊查询并陈列查询信息函数小工具
      *
-     * @param oper 调用者
+     * @param oper
      * @return 查询到的信息的gid, 如果返回值等于-1，则代表查询异常。
      */
     public static int query(String oper) {
         int gid = -1;
         String shopping = ScannerChoice.ScannerInfoString();// 键盘获取商品名字
         ArrayList<Goods> goodsList = new QueryPrint().queryGoodsKey(-1, shopping);// 根据键盘获取的商品名字調用 精确查询函数，確定用戶所要操作的数据
-        if (goodsList == null || goodsList.size() <= 0) {
+        if (goodsList.isEmpty()) {
             System.err.println("\t！！查无此商品 ！！");
 
             // 調用选择下一步函数
@@ -65,7 +65,7 @@ public final class QueryPrint {
     public static int querySettlement() {
         int gid = -1;
         ArrayList<Goods> goodsSettlement = new GoodsDao().queryGoods(3);// 調用关键字查询函数
-        if (goodsSettlement == null || goodsSettlement.size() <= 0) {
+        if (goodsSettlement.isEmpty()) {
             System.err.println("\t！！查无此商品 ！！\n");
             gid = -3;
         } else {// 查到有此商品，实现进行 更改商品 信息操作！
@@ -76,9 +76,7 @@ public final class QueryPrint {
                 if (goods.getGnum() > 0) {
                     System.out.print("\t" + goods.getGid() + "\t\t" + goods.getGname() + "\t\t" + goods.getGprice() + "\t\t" + goods.getGnum());
 
-                    if (goods.getGnum() == 0) {
-                        System.out.println("\t\t该商品已售空");
-                    } else if (goods.getGnum() < 10) {
+                    if (goods.getGnum() < 10) {
                         System.out.println("\t\t该商品已不足10件");
                     } else {
                         System.out.println("\t\t-");
@@ -98,7 +96,7 @@ public final class QueryPrint {
     /**
      * 根据商品 gid or gName查询商品
      *
-     * @param 商品id,商品名称
+     * @param gId,gName
      * @return 商品信息
      */
     public ArrayList<Goods> queryGoodsKey(int gId, String gName) {
@@ -123,7 +121,7 @@ public final class QueryPrint {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            DbClose.queryClose(pstmt, rs, conn);
+            DbClose.queryClose(rs, pstmt, conn);
         }
         return goodsList;
     }
@@ -131,7 +129,7 @@ public final class QueryPrint {
     /**
      * 精确查询售货员信息
      *
-     * @param 售货员名字
+     * @param sName
      * @return
      */
     public ArrayList<SalesMan> querySalesMan(String sName) {
@@ -153,7 +151,7 @@ public final class QueryPrint {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            DbClose.queryClose(pstmt, rs, conn);
+            DbClose.queryClose(rs, pstmt, conn);
         }
         return SalesManList;
     }

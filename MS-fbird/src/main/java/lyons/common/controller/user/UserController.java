@@ -1,8 +1,12 @@
 /*Copyright ©  2018 Lyons. All rights reserved. */
 package lyons.common.controller.user;
 
-import javax.servlet.http.HttpServletRequest;
-
+import lyons.common.exception.user.UserException;
+import lyons.common.model.user.UUser;
+import lyons.common.utils.ResultUtil;
+import lyons.common.utils.VisitorUtil;
+import lyons.common.utils.enums.AccountStaEnum;
+import lyons.core.shiro.token.ShiroDbRealm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import lyons.common.exception.user.NonuniquenessException;
-import lyons.common.exception.user.NullValueException;
-import lyons.common.exception.user.RepeatException;
-import lyons.common.model.user.UUser;
-import lyons.common.utils.ResultUtil;
-import lyons.common.utils.VisitorUtil;
-import lyons.common.utils.enums.AccountStaEnum;
-import lyons.core.shiro.token.ShiroDbRealm;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Description: 用户信息维护
@@ -29,7 +26,7 @@ import lyons.core.shiro.token.ShiroDbRealm;
  */
 @Controller
 public class UserController {
-    private static Logger log = LoggerFactory.getLogger(UserController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private ShiroDbRealm shiroDbRealm;
@@ -40,12 +37,12 @@ public class UserController {
     }
 
     /**
-     * @Title: registerSucess
+     * @Title: registerSuccess
      * @Description: 注册成功
      * @return: String
      */
-    @RequestMapping(value = "/registerSucess")
-    public String registerSucess() {
+    @RequestMapping(value = "/registerSuccess")
+    public String registerSuccess() {
         return "success/200";
     }
 
@@ -65,19 +62,13 @@ public class UserController {
                  /* 正在注册 */
                 shiroDbRealm.registering(uuser);
             }
-            log.info("\n\n " + VisitorUtil.getIpAddress(request) + " *====注册成功====* \n");
+            LOG.info("\n\n " + VisitorUtil.getIpAddress(request) + " *====注册成功====* \n");
             return ResultUtil.getUrlJson(request);
-        } catch (NullValueException e) {
-            log.error("\n\n ==> 注册空值: " + e + " <==\n");
-            return ResultUtil.getJson(e.getMessage());
-        } catch (RepeatException e) {
-            log.info("\n\n ==> 账号已注册 <== \n");
-            return ResultUtil.getJson(e.getMessage());
-        } catch (NonuniquenessException e) {
-            log.info("\n\n ==> 邮箱已注册 <== \n");
+        } catch (UserException e) {
+            LOG.error("\n\n ==> 邮箱已注册 <== \n");
             return ResultUtil.getJson(e.getMessage());
         } catch (Exception e) {
-            log.error("\n\n ==> 注册失败: " + e + " <==\n");
+            LOG.error("\n\n ==> 注册失败: " + e + " <==\n");
             return ResultUtil.getJson(AccountStaEnum.registerFailed.getInfo());
         }
     }

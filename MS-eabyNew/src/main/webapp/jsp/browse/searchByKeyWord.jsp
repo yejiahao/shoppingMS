@@ -1,12 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-
     <title>查询商品</title>
 
     <meta http-equiv="pragma" content="no-cache">
@@ -15,9 +10,6 @@
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <!--
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    -->
 </head>
 
 <style type="text/css">
@@ -27,14 +19,14 @@
 
     .bg-div {
         position: relative;
-        background-image: url(../../resource/image/page/river.jpg);
+        background-image: url(${pageContext.request.contextPath}/image/page/river.jpg);
         width: 1228px;
         height: 690px;
         margin: 0 auto;
     }
 
     .logo {
-        background-image: url(../../resource/image/page/logo.png);
+        background-image: url(${pageContext.request.contextPath}/image/page/logo.png);
         height: 53px;
         width: 107px;
         float: left;
@@ -61,13 +53,13 @@
         line-height: 25px;
         float: left;
         width: 80px;
-        border-style: #f00;;
+        border-style: #f00;
         outline: none;
         float: left;
     }
 
     .search-button {
-        background-image: url(../../resource/image/page/search-button.png);
+        background-image: url(${pageContext.request.contextPath}/image/page/search-button.png);
         width: 29px;
         height: 29px;
         float: left;
@@ -159,14 +151,15 @@
 <body>
 <div class="nav">
     <ul class="clearfix">
-        <li><a href="/lyons.eaby.new/index.jsp">首 页</a></li>
+        <li><a href="${pageContext.request.contextPath}/index.jsp">首 页</a></li>
     </ul>
 </div>
 <div class="bg-div">
     <div class="search-box">
         <div class="logo"></div>
 
-        <form class="search-form" action="<%= basePath %>Goods.action" target="_self" id="search-form" method="post">
+        <form class="search-form" action="${pageContext.request.contextPath}/goods.action" target="_self"
+              id="search-form" method="post">
             <input type="hidden" name="key" value="1"/>
             <input type="text" class="search-text" name="keyWord" id="search_input" autocomplete="off"
                    placeholder="请输入商品关键字"/>
@@ -190,7 +183,7 @@
      -->
 </div>
 </body>
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
 <script>
     $('#search_input').bind('keyup', function () {
         var jqueryInput = $(this);
@@ -201,6 +194,5 @@
         top: $('#search-form').offset().top + $('#search-form').height() + 10,
         left: $('#search-form').offset().left
     }).show();
-
 </script>
 </html>

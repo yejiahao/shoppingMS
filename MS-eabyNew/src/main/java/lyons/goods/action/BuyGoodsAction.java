@@ -28,14 +28,14 @@ public class BuyGoodsAction extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 
-        // 判断是否登陆
-        userName = (new UserService()).isLogin(request, response).trim();
+        // 判断是否登录
+        userName = new UserService().isLogin(request, response).trim();
         if ("".equals(userName) || userName == null) {
             return;
         }
 
         // 从模型中直接拿取购物车信息
-        HttpSession session = request.getSession(true);
+        HttpSession session = request.getSession();
         User loginBean = (User) session.getAttribute("loginBean");
         car = loginBean.getCar();
         GoodsServiceImpl goodsService = new GoodsServiceImpl();// 获取商品服务对象
@@ -50,11 +50,11 @@ public class BuyGoodsAction extends HttpServlet {
      * 打印商品购买处理结果
      *
      * @param response
-     * @param mess     返回的处理消息
+     * @param msg
      * @throws IOException
      */
-    public static void messShopping(HttpServletResponse response, String mess) throws IOException {
+    private static void messShopping(HttpServletResponse response, String msg) throws IOException {
         PrintWriter out = response.getWriter();
-        out.print(Iconst.buy_goods_success_1 + mess + Iconst.buy_goods_success_2);
+        out.print(Iconst.buy_goods_success_1 + msg + Iconst.buy_goods_success_2);
     }
 }

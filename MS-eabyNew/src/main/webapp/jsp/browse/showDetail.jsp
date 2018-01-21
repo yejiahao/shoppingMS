@@ -1,19 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/index.jsp" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 
-    <title>My JSP 'showDetail.jsp' starting page</title>
+    <title>商品详情页</title>
 
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
-    <!--
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    -->
 </head>
 
 <body>
@@ -30,22 +27,23 @@
 
         <%
             String detail = request.getParameter("detail");
-            String shopCarButton = "<form action='" + basePath + "lyons.goods/PutGoodsToCar" + "' method='post'>" +
-                    "<input type='hidden' name='GoodsCar' value=" + detail + ">" +
-                    "<input type='submit' value='加入购物车'></form>";
             String[] details = detail.split(",");
         %>
         <tr bgcolor=#43CD80><%
-            for (int i = 0; i < 5; ++i) {%>
+            for (int i = 0; i < 5; i++) {%>
             <td><%= details[i]%>
             </td>
             <%}%>
-            <td><%= shopCarButton%>
+            <td>
+                <form action="${pageContext.request.contextPath}/putGoodsToCar" method="post">
+                    <input type="hidden" name="GoodsCar" value=<%= detail%>>
+                    <input type="submit" value="加入购物车">
+                </form>
             </td>
         </tr>
     </table>
     <br>
-    <img src="<%= basePath %>resource/image/goods/<%= details[5] %>" width="360" height="300"></img>
+    <img src="${pageContext.request.contextPath}/image/goods/<%= details[5] %>" alt="图片" width="360" height="300"/>
 </center>
 </body>
 </html>

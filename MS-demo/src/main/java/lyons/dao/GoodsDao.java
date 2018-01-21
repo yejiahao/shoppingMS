@@ -24,22 +24,20 @@ public final class GoodsDao {
     /**
      * 1.添加商品到数据库goods表
      *
-     * @param goods 商品对象
+     * @param goods
      * @return boolean
      */
     public boolean addGoods(Goods goods) {
         boolean bool = false;
         conn = DbConn.getConn();
         String sql = "INSERT INTO GOODS(GNAME,GPRICE,GNUM) VALUES(?,?,?)";
-
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, goods.getGname());
             pstmt.setDouble(2, goods.getGprice());
             pstmt.setInt(3, goods.getGnum());
 
-            int rs = pstmt.executeUpdate();
-            if (rs > 0) {
+            if (pstmt.executeUpdate() > 0) {
                 bool = true;
             }
         } catch (SQLException e) {
@@ -53,70 +51,54 @@ public final class GoodsDao {
     /**
      * 2.更改商品信息到数据库goods表
      *
-     * @param key   选择要更改商品信息
-     * @param goods 商品对象
+     * @param key
+     * @param goods
      * @return boolean
      */
     public boolean updateGoods(int key, Goods goods) {
         boolean bool = false;
         conn = DbConn.getConn();
-        switch (key) {
-            case 1:        // key=1,更改商品名称
-                String sqlName = "UPDATE GOODS SET GNAME=? WHERE GID=?";
+        try {
+            switch (key) {
+                case 1:        // key=1,更改商品名称
+                    String sqlName = "UPDATE GOODS SET GNAME=? WHERE GID=?";
 
-                try {
                     pstmt = conn.prepareStatement(sqlName);
                     pstmt.setString(1, goods.getGname());
                     pstmt.setInt(2, goods.getGid());
 
-                    int rs = pstmt.executeUpdate();
-                    if (rs > 0) {
+                    if (pstmt.executeUpdate() > 0) {
                         bool = true;
                     }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } finally {
-                    DbClose.addClose(pstmt, conn);
-                }
-                break;
-            case 2:        // key=2,更改商品价格
-                String sqlPrice = "UPDATE GOODS SET GPRICE=? WHERE GID=?";
 
-                try {
+                    break;
+                case 2:        // key=2,更改商品价格
+                    String sqlPrice = "UPDATE GOODS SET GPRICE=? WHERE GID=?";
                     pstmt = conn.prepareStatement(sqlPrice);
                     pstmt.setDouble(1, goods.getGprice());
                     pstmt.setInt(2, goods.getGid());
 
-                    int rs = pstmt.executeUpdate();
-                    if (rs > 0) {
+                    if (pstmt.executeUpdate() > 0) {
                         bool = true;
                     }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } finally {
-                    DbClose.addClose(pstmt, conn);
-                }
-                break;
-            case 3:        // key=3,更改商品数量
-                String sqlNum = "UPDATE GOODS SET GNUM=? WHERE GID=?";
-
-                try {
+                    break;
+                case 3:        // key=3,更改商品数量
+                    String sqlNum = "UPDATE GOODS SET GNUM=? WHERE GID=?";
                     pstmt = conn.prepareStatement(sqlNum);
                     pstmt.setInt(1, goods.getGnum());
                     pstmt.setInt(2, goods.getGid());
 
-                    int rs = pstmt.executeUpdate();
-                    if (rs > 0) {
+                    if (pstmt.executeUpdate() > 0) {
                         bool = true;
                     }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } finally {
-                    DbClose.addClose(pstmt, conn);
-                }
-                break;
-            default:
-                break;
+                    break;
+                default:
+                    break;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbClose.addClose(pstmt, conn);
         }
         return bool;
     }
@@ -124,7 +106,7 @@ public final class GoodsDao {
     /**
      * 3.从数据库goods表中-刪除商品
      *
-     * @param gid 商品编号
+     * @param gid
      * @return boolean
      */
     public boolean deleteGoods(int gid) {
@@ -135,8 +117,7 @@ public final class GoodsDao {
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, gid);
-            int rs = pstmt.executeUpdate();
-            if (rs > 0) {
+            if (pstmt.executeUpdate() > 0) {
                 bool = true;
             }
         } catch (SQLException e) {
@@ -150,18 +131,18 @@ public final class GoodsDao {
     /**
      * 4.查询商品信息
      *
-     * @param key 查询方式
+     * @param key
      * @return ArrayList<Goods>
      */
     public ArrayList<Goods> queryGoods(int key) {
         ArrayList<Goods> goodsList = new ArrayList<>();
         conn = DbConn.getConn();
+        try {
+            switch (key) {
+                case 1:
+                    // key=1商品 数量 升序查询
+                    String sqlGnum = "SELECT * FROM GOODS ORDER BY GNUM ASC";
 
-        switch (key) {
-            case 1:
-                // key=1商品 数量 升序查询
-                String sqlGnum = "SELECT * FROM GOODS ORDER BY GNUM ASC";
-                try {
                     pstmt = conn.prepareStatement(sqlGnum);
                     rs = pstmt.executeQuery();
                     while (rs.next()) {
@@ -173,16 +154,10 @@ public final class GoodsDao {
                         Goods goods = new Goods(gid, gname, gprice, gnum);
                         goodsList.add(goods);
                     }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } finally {
-                    DbClose.queryClose(pstmt, rs, conn);
-                }
-                break;
-            case 2:
-                // key=2商品 价格 升序查询
-                String sqlGprice = "SELECT * FROM GOODS ORDER BY GPRICE ASC";
-                try {
+                    break;
+                case 2:
+                    // key=2商品 价格 升序查询
+                    String sqlGprice = "SELECT * FROM GOODS ORDER BY GPRICE ASC";
                     pstmt = conn.prepareStatement(sqlGprice);
                     rs = pstmt.executeQuery();
                     while (rs.next()) {
@@ -194,17 +169,11 @@ public final class GoodsDao {
                         Goods goods = new Goods(gid, gname, gprice, gnum);
                         goodsList.add(goods);
                     }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } finally {
-                    DbClose.queryClose(pstmt, rs, conn);
-                }
-                break;
-            case 3:
-                // key=3商品 关键字 查询
-                String nameGet = ScannerChoice.ScannerInfoString();
-                String sqlGname = "SELECT * FROM GOODS WHERE GNAME LIKE '%'||?||'%'";
-                try {
+                    break;
+                case 3:
+                    // key=3商品 关键字 查询
+                    String nameGet = ScannerChoice.ScannerInfoString();
+                    String sqlGname = "SELECT * FROM GOODS WHERE GNAME LIKE '%'||?||'%'";
                     pstmt = conn.prepareStatement(sqlGname);
                     pstmt.setString(1, nameGet);
                     rs = pstmt.executeQuery();
@@ -217,14 +186,14 @@ public final class GoodsDao {
                         Goods goods = new Goods(gid, gname, gprice, gnum);
                         goodsList.add(goods);
                     }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } finally {
-                    DbClose.queryClose(pstmt, rs, conn);
-                }
-                break;
-            default:
-                break;
+                    break;
+                default:
+                    break;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbClose.queryClose(rs, pstmt, conn);
         }
         return goodsList;
     }
@@ -238,7 +207,6 @@ public final class GoodsDao {
         ArrayList<Goods> goodsList = new ArrayList<>();
         conn = DbConn.getConn();
         String sql = "SELECT * FROM GOODS";
-
         try {
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
@@ -255,7 +223,7 @@ public final class GoodsDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            DbClose.queryClose(pstmt, rs, conn);
+            DbClose.queryClose(rs, pstmt, conn);
         }
         return goodsList;
     }

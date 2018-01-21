@@ -1,29 +1,20 @@
 /*Copyright ©  2018 Lyons. All rights reserved. */
 package lyons.core.shiro.token;
 
-import java.util.Date;
-
+import lyons.common.exception.user.UserException;
+import lyons.common.model.user.UUser;
+import lyons.common.service.user.UUserService;
+import lyons.common.utils.MathUtil;
+import lyons.common.utils.enums.AccountStaEnum;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.DisabledAccountException;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
-import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import lyons.common.exception.user.NonuniquenessException;
-import lyons.common.exception.user.RepeatException;
-import lyons.common.exception.user.UserException;
-import lyons.common.model.user.UUser;
-import lyons.common.service.user.UUserService;
-import lyons.common.utils.MathUtil;
-import lyons.common.utils.enums.AccountStaEnum;
+import java.util.Date;
 
 /**
  * @Description: 登录认证+授权
@@ -67,7 +58,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
          * 检查是否已注册
          */
         if (userService.isRegister(uuser.getuName())) {
-            throw new RepeatException(AccountStaEnum.registerRepeat.getInfo());
+            throw new UserException(AccountStaEnum.registerRepeat.getInfo());
         }
 
         uuser.setuPassword(MathUtil.getMd5(uuser.getuPassword()));
@@ -76,7 +67,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
              * TODO
              * 该异常不是很准确
              */
-            throw new NonuniquenessException(AccountStaEnum.registerExistence.getInfo());
+            throw new UserException(AccountStaEnum.registerExistence.getInfo());
         }
     }
 

@@ -1,8 +1,11 @@
 /*Copyright ©  2018 Lyons. All rights reserved. */
 package lyons.common.controller.goods;
 
-import java.util.List;
-
+import lyons.common.controller.BaseController;
+import lyons.common.model.goods.GOrder;
+import lyons.common.model.goods.Goods;
+import lyons.common.service.goods.GOrderService;
+import lyons.common.service.goods.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,11 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import lyons.common.controller.BaseController;
-import lyons.common.model.goods.GOrder;
-import lyons.common.model.goods.Goods;
-import lyons.common.service.goods.GOrderService;
-import lyons.common.service.goods.GoodsService;
+import java.util.List;
 
 /**
  * @Description: 商品展示
@@ -65,7 +64,7 @@ public class GoodsController extends BaseController {
 
     /**
      * @param gId
-     * @param map
+     * @param model
      * @Title: detail
      * @Description: 商品详情
      * @return: String
